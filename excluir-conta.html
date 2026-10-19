@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Excluir sua conta — Roadfy</title>
+<meta name="description" content="Como apagar sua conta do Roadfy e tudo que ela guarda, pelo aplicativo ou por e-mail.">
+<style>
+  :root {
+    --fundo: #FAFAF9;
+    --texto: #1C1917;
+    --suave: #57534E;
+    --caixa: #FFFFFF;
+    --borda: #E7E5E4;
+    --marca: #0A7C42;
+    --perigo: #B91C1C;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --fundo: #0C0A09;
+      --texto: #FAFAF9;
+      --suave: #A8A29E;
+      --caixa: #1C1917;
+      --borda: #292524;
+      --marca: #56FF95;
+      --perigo: #F87171;
+    }
+  }
+  :root[data-theme="dark"] {
+    --fundo: #0C0A09;
+    --texto: #FAFAF9;
+    --suave: #A8A29E;
+    --caixa: #1C1917;
+    --borda: #292524;
+    --marca: #56FF95;
+    --perigo: #F87171;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--fundo);
+    color: var(--texto);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  main { max-width: 42rem; margin: 0 auto; padding: 3rem 16px 6rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 1rem; }
+  h2 { font-size: 1.15rem; margin: 2.5rem 0 .75rem; }
+  a { color: var(--marca); }
+  ul { padding-left: 1.25rem; }
+  li { margin: .35rem 0; }
+  .passos { counter-reset: passo; list-style: none; padding: 0; }
+  .passos li {
+    counter-increment: passo;
+    position: relative;
+    padding-left: 2.25rem;
+    margin: .75rem 0;
+  }
+  .passos li::before {
+    content: counter(passo);
+    position: absolute;
+    left: 0;
+    top: .1rem;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%;
+    background: var(--marca);
+    color: var(--fundo);
+    font-size: .85rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .caixa {
+    background: var(--caixa);
+    border: 1px solid var(--borda);
+    border-radius: .75rem;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+  }
+  .perigo { color: var(--perigo); font-weight: 600; }
+  code {
+    background: var(--caixa);
+    border: 1px solid var(--borda);
+    border-radius: .35rem;
+    padding: .1rem .4rem;
+    font-size: .9em;
+  }
+  footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--borda); color: var(--suave); font-size: .9rem; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Excluir sua conta do Roadfy</h1>
+
+<p>
+  Você pode apagar sua conta e tudo que ela guarda a qualquer momento. A exclusão
+  é <span class="perigo">imediata e definitiva</span> — não há como recuperar
+  depois, nem por nós.
+</p>
+
+<h2>Pelo aplicativo (mais rápido)</h2>
+
+<div class="caixa">
+  <ol class="passos">
+    <li>Abra o Roadfy e vá em <strong>Perfil</strong></li>
+    <li>Toque em <strong>Configurações</strong></li>
+    <li>Toque em <strong>Excluir minha conta</strong></li>
+    <li>Leia o que será apagado e digite <code>EXCLUIR MINHA CONTA</code> para confirmar</li>
+  </ol>
+</div>
+
+<h2>Se você já desinstalou o aplicativo</h2>
+
+<p>
+  Escreva para <a href="mailto:davdevlab@gmail.com?subject=Excluir%20minha%20conta">davdevlab@gmail.com</a>
+  <strong>do mesmo e-mail cadastrado na conta</strong>, com o assunto
+  “Excluir minha conta”.
+</p>
+<p>
+  Pedimos que o e-mail seja o mesmo da conta porque é assim que confirmamos que o
+  pedido é seu — não conseguimos apagar a conta de alguém a partir de um endereço
+  que não sabemos ser dele. Concluímos em até 15 dias e confirmamos por e-mail
+  quando terminar.
+</p>
+
+<h2>O que é apagado</h2>
+<ul>
+  <li>Seu perfil, sua foto e seus seguidores</li>
+  <li>Seus rolês, com os pontos de GPS e as fotos</li>
+  <li>Suas curtidas, comentários e rotas salvas</li>
+  <li>Suas conclusões de rota</li>
+  <li>Sua assinatura Premium, se houver</li>
+  <li>Os grupos que você criou, com o chat deles — para todos os participantes</li>
+  <li>Tudo que o aplicativo guardou no seu aparelho, incluindo gravações não publicadas</li>
+</ul>
+
+<h2>O que permanece, e por quê</h2>
+<p>
+  As <strong>rotas que você cadastrou no catálogo</strong> continuam lá, sem o seu
+  nome. Outras pessoas salvaram e concluíram essas rotas: apagá-las apagaria o
+  histórico de quem não pediu nada. Seu vínculo com elas é removido.
+</p>
+<p>
+  <strong>Registros de pagamento</strong>, se você tiver assinado o Premium, ficam
+  pelo prazo que a legislação fiscal exige.
+</p>
+
+<p>
+  Detalhes sobre o que coletamos e por quê estão na
+  <a href="privacidade.html">Política de Privacidade</a>.
+</p>
+
+<footer>
+  <a href="index.html">Roadfy</a>
+</footer>
+
+</main>
+</body>
+</html>

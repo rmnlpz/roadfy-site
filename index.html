@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roadfy</title>
+<meta name="description" content="Páginas públicas do aplicativo Roadfy: política de privacidade e exclusão de conta.">
+<style>
+  :root {
+    --fundo: #FAFAF9;
+    --texto: #1C1917;
+    --suave: #57534E;
+    --caixa: #FFFFFF;
+    --borda: #E7E5E4;
+    --marca: #0A7C42;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --fundo: #0C0A09;
+      --texto: #FAFAF9;
+      --suave: #A8A29E;
+      --caixa: #1C1917;
+      --borda: #292524;
+      --marca: #56FF95;
+    }
+  }
+  :root[data-theme="dark"] {
+    --fundo: #0C0A09;
+    --texto: #FAFAF9;
+    --suave: #A8A29E;
+    --caixa: #1C1917;
+    --borda: #292524;
+    --marca: #56FF95;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 48px 16px;
+    background: var(--fundo);
+    color: var(--texto);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  main { max-width: 34rem; margin: 0 auto; }
+  h1 { font-size: 1.75rem; margin: 0 0 .25rem; letter-spacing: -.02em; }
+  p.sub { color: var(--suave); margin: 0 0 2rem; }
+  a.cartao {
+    display: block;
+    padding: 1rem 1.25rem;
+    margin-bottom: .75rem;
+    background: var(--caixa);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    color: var(--texto);
+    text-decoration: none;
+  }
+  a.cartao:hover { border-color: var(--marca); }
+  a.cartao strong { display: block; color: var(--marca); margin-bottom: .15rem; }
+  a.cartao span { color: var(--suave); font-size: .925rem; }
+  footer { margin-top: 2.5rem; color: var(--suave); font-size: .875rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Roadfy</h1>
+  <p class="sub">Aplicativo de trilha para motociclistas. Esta página reúne o que a loja exige que fique aberto.</p>
+
+  <a class="cartao" href="privacidade.html">
+    <strong>Política de Privacidade</strong>
+    <span>O que o app coleta, por quê, com quem compartilha e como apagar tudo.</span>
+  </a>
+
+  <a class="cartao" href="excluir-conta.html">
+    <strong>Excluir sua conta</strong>
+    <span>Como apagar sua conta e tudo que ela guarda, pelo app ou por e-mail.</span>
+  </a>
+
+  <footer>Contato: <a href="mailto:davdevlab@gmail.com">davdevlab@gmail.com</a></footer>
+</main>
+</body>
+</html>

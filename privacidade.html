@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de Privacidade — Roadfy</title>
+<meta name="description" content="O que o Roadfy coleta, por quê, com quem compartilha e como apagar tudo.">
+<style>
+  :root {
+    --fundo: #FAFAF9;
+    --texto: #1C1917;
+    --suave: #57534E;
+    --caixa: #FFFFFF;
+    --borda: #E7E5E4;
+    --marca: #0A7C42;
+    --atencao: #FEF3C7;
+    --atencao-borda: #F59E0B;
+    --atencao-texto: #78350F;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --fundo: #0C0A09;
+      --texto: #FAFAF9;
+      --suave: #A8A29E;
+      --caixa: #1C1917;
+      --borda: #292524;
+      --marca: #56FF95;
+      --atencao: #292013;
+      --atencao-borda: #B45309;
+      --atencao-texto: #FDE68A;
+    }
+  }
+  :root[data-theme="dark"] {
+    --fundo: #0C0A09;
+    --texto: #FAFAF9;
+    --suave: #A8A29E;
+    --caixa: #1C1917;
+    --borda: #292524;
+    --marca: #56FF95;
+    --atencao: #292013;
+    --atencao-borda: #B45309;
+    --atencao-texto: #FDE68A;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--fundo);
+    color: var(--texto);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  main { max-width: 46rem; margin: 0 auto; padding: 3rem 16px 6rem; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 .25rem; }
+  h2 { font-size: 1.25rem; margin: 2.75rem 0 .75rem; }
+  h3 { font-size: 1rem; margin: 1.75rem 0 .5rem; }
+  .data { color: var(--suave); font-size: .9rem; margin: 0 0 2.5rem; }
+  p, li { color: var(--texto); }
+  ul { padding-left: 1.25rem; }
+  li { margin: .35rem 0; }
+  a { color: var(--marca); }
+  .caixa {
+    background: var(--caixa);
+    border: 1px solid var(--borda);
+    border-radius: .75rem;
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0;
+  }
+  .atencao {
+    background: var(--atencao);
+    border: 1px solid var(--atencao-borda);
+    color: var(--atencao-texto);
+    border-radius: .75rem;
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+  }
+  .atencao p, .atencao li { color: var(--atencao-texto); }
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .95rem; }
+  th, td { text-align: left; padding: .6rem .5rem; border-bottom: 1px solid var(--borda); vertical-align: top; }
+  th { color: var(--suave); font-weight: 600; font-size: .85rem; text-transform: uppercase; letter-spacing: .03em; }
+  footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--borda); color: var(--suave); font-size: .9rem; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Política de Privacidade do Roadfy</h1>
+<p class="data">Vigente desde 19 de outubro de 2026.</p>
+
+<p>
+  O Roadfy é um aplicativo para motociclistas de trilha: você grava o trajeto por
+  GPS, avalia o trecho, anexa fotos e publica para outros pilotos descobrirem.
+  Fazer isso exige coletar dados sensíveis — onde você esteve, e quando. Esta
+  página diz exatamente o que é coletado, para quê, com quem é compartilhado e
+  como apagar tudo.
+</p>
+
+<h2>1. Quem é responsável pelos seus dados</h2>
+<p>
+  O controlador dos dados, nos termos da Lei Geral de Proteção de Dados
+  (Lei 13.709/2018), é <strong>David Ramon Lopes Faustino</strong>, pessoa física,
+  desenvolvedor do Roadfy.
+</p>
+<p>
+  Contato para qualquer assunto de privacidade, inclusive o exercício dos seus
+  direitos: <a href="mailto:davdevlab@gmail.com">davdevlab@gmail.com</a>.
+</p>
+
+<h2>2. Localização, inclusive com o app fechado</h2>
+
+<div class="atencao">
+  <p><strong>Leia esta parte com atenção — é a mais invasiva.</strong></p>
+  <p>
+    Durante uma gravação, o Roadfy coleta sua localização precisa <strong>de forma
+    contínua e em segundo plano</strong>: com a tela bloqueada e mesmo com o
+    aplicativo fechado. Sem isso não existe o produto — trilha é onde o sinal
+    acaba e o sistema encerra aplicativos para poupar bateria, e uma gravação que
+    para no meio não serve para nada.
+  </p>
+  <p>
+    A coleta acontece <strong>somente enquanto uma gravação está em andamento</strong>,
+    iniciada por você e sinalizada por uma notificação permanente enquanto dura.
+    Fora disso, o aplicativo não rastreia sua posição.
+  </p>
+  <p>
+    A permissão é pedida separadamente pelo sistema e pode ser revogada a qualquer
+    momento nas configurações do aparelho. Revogando-a, a gravação deixa de
+    funcionar; o resto do aplicativo continua.
+  </p>
+</div>
+
+<h2>3. Dados que coletamos</h2>
+
+<h3>Para criar e manter sua conta</h3>
+<ul>
+  <li><strong>E-mail e senha</strong>, quando você se cadastra por e-mail. A senha é
+      guardada apenas como resumo criptográfico — não temos acesso a ela.</li>
+  <li><strong>Nome, e-mail e foto de perfil da conta Google</strong>, quando você
+      entra com o Google. Recebemos esses dados do Google no momento da entrada.</li>
+  <li><strong>Perfil</strong>: nome de usuário, nome de exibição, biografia, moto e
+      foto, quando você os preenche.</li>
+</ul>
+
+<h3>Quando você grava e publica um trajeto</h3>
+<ul>
+  <li><strong>Pontos de GPS</strong>: latitude, longitude, altitude, precisão e o
+      horário de cada ponto do percurso.</li>
+  <li><strong>Resumo do trajeto</strong>: distância, duração, ganho de elevação,
+      início e fim.</li>
+  <li><strong>Suas avaliações</strong>: dificuldade, qualidade do piso, beleza,
+      tipos de piso, título e observações que você escrever.</li>
+  <li><strong>Fotos</strong> que você anexar, da câmera ou da galeria.</li>
+</ul>
+
+<h3>Quando você usa a parte social</h3>
+<ul>
+  <li>Curtidas, comentários, quem você segue e quem segue você.</li>
+  <li>Rotas salvas no catálogo, rotas que você começou a percorrer e conclusões.</li>
+  <li>Grupos que você criar ou dos quais participar, incluindo as mensagens do chat.</li>
+</ul>
+
+<h3>Se você assinar o Premium</h3>
+<ul>
+  <li>Situação da assinatura, plano e data de término do período.</li>
+  <li><strong>Não recebemos nem armazenamos dados do seu cartão.</strong></li>
+  <li>O Premium não está à venda no momento. Quando voltar, a cobrança será feita
+      pela Google Play, na conta Google que você já usa — e esta política será
+      atualizada antes disso, dizendo o que a Play nos informa.</li>
+</ul>
+
+<h3>Quando algo dá errado no aplicativo</h3>
+<p>
+  Se o aplicativo encontra um erro inesperado, ele envia um relatório técnico
+  para o serviço Sentry, que usamos para descobrir e corrigir falhas. Esse
+  relatório contém a mensagem do erro, a pilha de chamadas do código, o modelo
+  e a versão do sistema do aparelho e a versão do aplicativo.
+</p>
+<p>
+  <strong>O que esse relatório não contém, por decisão de projeto:</strong> seu
+  nome, seu e-mail, seu identificador de usuário, nenhuma coordenada de GPS e
+  nenhuma foto. Também não capturamos imagens da tela nem gravação de sessão —
+  recursos que o serviço oferece e que desligamos, porque a tela deste
+  aplicativo mostra justamente o mapa com a sua posição.
+</p>
+
+<h3>No seu aparelho, sem sair dele</h3>
+<p>
+  Gravações em andamento e ainda não publicadas ficam num banco local, junto com as
+  fotos anexadas, para sobreviverem à falta de sinal e ao encerramento do aplicativo.
+  Sua sessão é guardada no cofre de credenciais do sistema (Keychain no iOS,
+  KeyStore no Android). Nada disso é enviado enquanto você não publicar, e tudo é
+  apagado quando você exclui a conta ou sai.
+</p>
+
+<h2>4. Por que tratamos cada dado</h2>
+
+<table>
+  <tr><th>Dado</th><th>Finalidade</th><th>Base legal (LGPD)</th></tr>
+  <tr>
+    <td>E-mail, senha, dados do Google</td>
+    <td>Criar e autenticar sua conta</td>
+    <td>Execução de contrato (art. 7º, V)</td>
+  </tr>
+  <tr>
+    <td>Localização precisa, inclusive em segundo plano</td>
+    <td>Gravar o trajeto, desenhar o mapa e verificar conclusões de rota</td>
+    <td>Consentimento (art. 7º, I), dado pela permissão do sistema</td>
+  </tr>
+  <tr>
+    <td>Fotos, avaliações e textos</td>
+    <td>Publicar seu trajeto e alimentar o feed</td>
+    <td>Execução de contrato (art. 7º, V)</td>
+  </tr>
+  <tr>
+    <td>Curtidas, comentários, seguidores, rolês</td>
+    <td>As funções sociais do aplicativo</td>
+    <td>Execução de contrato (art. 7º, V)</td>
+  </tr>
+  <tr>
+    <td>Relatório de erro do aplicativo</td>
+    <td>Corrigir falhas e manter o aplicativo funcionando</td>
+    <td>Legítimo interesse (art. 7º, IX)</td>
+  </tr>
+  <tr>
+    <td>Dados da assinatura</td>
+    <td>Liberar o Premium e atender obrigações fiscais</td>
+    <td>Execução de contrato e obrigação legal (art. 7º, II e V)</td>
+  </tr>
+</table>
+
+<h2>5. O que fica visível para outras pessoas</h2>
+<p>
+  Esta é a parte que mais costuma surpreender, então está em detalhe:
+</p>
+<ul>
+  <li><strong>Trajeto publicado como público</strong>: seu traçado completo no mapa,
+      o resumo, suas avaliações e as fotos ficam visíveis para qualquer pessoa
+      <em>logada</em> no aplicativo. O traçado inclui o ponto onde a gravação começou
+      e terminou.</li>
+  <li><strong>Trajeto marcado como privado</strong>: visível apenas para você,
+      inclusive as fotos.</li>
+  <li><strong>Seu perfil</strong>: nome de usuário, nome de exibição, biografia, moto
+      e foto são visíveis para quem está logado. A opção “perfil privado” esconde as
+      listas de quem você segue e de quem te segue — não esconde o perfil nem os
+      trajetos públicos.</li>
+  <li><strong>Chat de grupo</strong>: visível apenas para os participantes daquele grupo.</li>
+</ul>
+
+<div class="atencao">
+  <p>
+    <strong>Sobre o ponto de partida.</strong> O início e o fim de uma gravação
+    costumam ser a casa de quem gravou. Por isso, ao publicar um trajeto público,
+    o aplicativo <strong>corta os primeiros e os últimos 300 metros do traçado
+    antes de enviá-lo</strong>. Esse trecho não é recortado na exibição: ele não
+    sai do seu aparelho, e portanto nunca chega aos nossos servidores nem aos do
+    Google. Nem nós conseguimos vê-lo.
+  </p>
+  <p>
+    A opção fica na tela de publicação e vem ligada. Você pode desligá-la para um
+    trajeto específico — por exemplo, quando a trilha começa longe de onde você
+    mora e o percurso inteiro interessa. Desligando, o traçado vai completo.
+  </p>
+  <p>
+    Distância, duração e ganho de elevação continuam sendo os do trajeto inteiro:
+    eles não revelam onde você esteve.
+  </p>
+</div>
+
+<h2>6. Com quem compartilhamos</h2>
+<p>
+  Não vendemos seus dados e não os usamos para publicidade. Compartilhamos apenas
+  com os prestadores necessários para o aplicativo funcionar:
+</p>
+
+<table>
+  <tr><th>Quem</th><th>O que recebe</th><th>Para quê</th></tr>
+  <tr>
+    <td>Supabase</td>
+    <td>Todos os dados da sua conta, trajetos e fotos</td>
+    <td>Hospedagem do banco de dados, autenticação e armazenamento de arquivos</td>
+  </tr>
+  <tr>
+    <td>Google Maps</td>
+    <td>A região exibida no mapa</td>
+    <td>Desenhar o mapa dentro do aplicativo</td>
+  </tr>
+  <tr>
+    <td>Google Static Maps</td>
+    <td>O traçado do trajeto publicado</td>
+    <td>Gerar, uma única vez por trajeto, a imagem de mapa que aparece no card</td>
+  </tr>
+  <tr>
+    <td>Google (Login)</td>
+    <td>A confirmação de identidade</td>
+    <td>Permitir entrar com a conta Google</td>
+  </tr>
+  <tr>
+    <td>Sentry</td>
+    <td>Relatórios de erro do aplicativo, sem dados que identifiquem você</td>
+    <td>Descobrir e corrigir falhas</td>
+  </tr>
+  <tr>
+    <td>ViaCEP</td>
+    <td>O CEP que você digitar na busca</td>
+    <td>Descobrir a cidade correspondente ao CEP</td>
+  </tr>
+</table>
+
+<p>
+  Também podemos divulgar dados quando houver ordem judicial ou obrigação legal.
+</p>
+
+<h2>7. Onde os dados ficam</h2>
+<p>
+  Os servidores do Supabase que usamos ficam no Canadá, e os demais prestadores
+  acima operam em outros países. Isso significa que seus dados são transferidos
+  para fora do Brasil, com base no art. 33 da LGPD e nas salvaguardas contratuais
+  desses prestadores.
+</p>
+
+<h2>8. Por quanto tempo guardamos</h2>
+<ul>
+  <li>Enquanto sua conta existir.</li>
+  <li>Ao excluir a conta, os dados são apagados imediatamente e de forma
+      irreversível — inclusive as fotos.</li>
+  <li><strong>Uma exceção, e o motivo dela:</strong> as rotas que você tiver
+      cadastrado no catálogo permanecem, sem o seu nome. Outras pessoas salvaram e
+      concluíram essas rotas, e apagá-las apagaria o histórico de quem não pediu
+      nada. O vínculo com você é removido.</li>
+  <li>Registros de pagamento ficam pelo prazo exigido pela legislação fiscal.</li>
+</ul>
+
+<h2>9. Como excluir sua conta</h2>
+<p>
+  Dentro do aplicativo, em <strong>Perfil → Configurações → Excluir minha conta</strong>.
+  A tela mostra o que será apagado e pede confirmação por escrito.
+</p>
+<p>
+  Se você já desinstalou o aplicativo, use a
+  <a href="excluir-conta.html">página de exclusão de conta</a>.
+</p>
+
+<h2>10. Seus direitos</h2>
+<p>A LGPD garante a você, a qualquer momento e sem custo:</p>
+<ul>
+  <li>Confirmar se tratamos seus dados e acessar o que temos</li>
+  <li>Corrigir dados incompletos ou desatualizados</li>
+  <li>Pedir anonimização, bloqueio ou eliminação</li>
+  <li>Pedir a portabilidade a outro fornecedor</li>
+  <li>Revogar o consentimento — inclusive o de localização, pelas configurações do aparelho</li>
+  <li>Ser informado sobre com quem compartilhamos seus dados</li>
+</ul>
+<p>
+  Escreva para <a href="mailto:davdevlab@gmail.com">davdevlab@gmail.com</a>.
+  Respondemos em até 15 dias.
+</p>
+
+<h2>11. Segurança</h2>
+<p>
+  O acesso aos dados é controlado no próprio banco, por regras que avaliam cada
+  leitura e cada escrita individualmente: um trajeto privado e suas fotos não são
+  entregues a quem não é o dono, mesmo que alguém descubra o endereço do arquivo.
+  As conexões são cifradas e sua sessão fica no cofre de credenciais do aparelho.
+</p>
+<p>
+  Nenhum sistema é inviolável. Se ocorrer um incidente que traga risco relevante a
+  você, comunicaremos você e a Autoridade Nacional de Proteção de Dados.
+</p>
+
+<h2>12. Idade mínima</h2>
+<p>
+  O Roadfy é destinado a maiores de 18 anos, por tratar de pilotagem de motocicletas
+  em trilha. Não coletamos dados de crianças e adolescentes intencionalmente. Se
+  tomarmos conhecimento de um cadastro nessa condição, a conta será excluída.
+</p>
+
+<h2>13. Mudanças nesta política</h2>
+<p>
+  Quando mudarmos algo relevante, avisaremos no aplicativo antes de a mudança valer,
+  e a data no topo desta página será atualizada.
+</p>
+
+<h2>14. Contato</h2>
+<p>
+  <a href="mailto:davdevlab@gmail.com">davdevlab@gmail.com</a>
+</p>
+
+<footer>
+  <a href="index.html">Roadfy</a>
+</footer>
+
+</main>
+</body>
+</html>
