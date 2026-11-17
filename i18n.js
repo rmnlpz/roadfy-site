@@ -67,8 +67,8 @@
   "final_lead": "Roadfy is coming to Google Play. Want in early, as a tester? Send us an email.",
   "ic_alt": "Roadfy icon",
   "foot_aria": "Footer",
-  "foot_priv": "Privacy Policy (in Portuguese)",
-  "foot_del": "Delete your account (in Portuguese)",
+  "foot_priv": "Privacy Policy",
+  "foot_del": "Delete your account",
   "a_mapa": "Roadfy route map in satellite view, with a route track drawn in green",
   "a_feed": "Roadfy feed with a photo of a motorcycle on a trail and the ride summary: 86.2 km",
   "a_gravar": "Recording screen with timer, distance, climb and the Pause and Finish buttons",
@@ -110,7 +110,7 @@
   "f1_t": "Distance",
   "f1_p": "Everything you've ridden with the GPS on.",
   "f1_n": "From “Engine warmed up” to “Around the world”",
-  "f2_t": "Time in the saddle",
+  "f2_t": "Time on the road",
   "f2_p": "Hours of recorded riding, stops included.",
   "f2_n": "From “First hours” to “A thousand hours of wind in your face”",
   "f3_t": "Routes opened",
@@ -224,8 +224,8 @@
   "final_lead": "Roadfy llega pronto a Google Play. ¿Quieres entrar antes, como probador? Escríbenos un correo.",
   "ic_alt": "Icono de Roadfy",
   "foot_aria": "Pie de página",
-  "foot_priv": "Política de Privacidad (en portugués)",
-  "foot_del": "Eliminar tu cuenta (en portugués)",
+  "foot_priv": "Política de Privacidad",
+  "foot_del": "Eliminar tu cuenta",
   "a_mapa": "Mapa de rutas de Roadfy en satélite, con el trazado de una ruta en verde",
   "a_feed": "Feed de Roadfy con la foto de una moto en una ruta y el resumen: 86,2 km",
   "a_gravar": "Pantalla de grabación con cronómetro, distancia, desnivel y los botones Pausar y Finalizar",
@@ -267,7 +267,7 @@
   "f1_t": "Kilometraje",
   "f1_p": "Todo lo que has recorrido con el GPS encendido.",
   "f1_n": "De “Motor caliente” a “Vuelta al mundo”",
-  "f2_t": "Tiempo en la moto",
+  "f2_t": "Tiempo en la carretera",
   "f2_p": "Horas de ruta grabada, paradas incluidas.",
   "f2_n": "De “Primeras horas” a “Mil horas con el viento en la cara”",
   "f3_t": "Rutas abiertas",
@@ -356,6 +356,13 @@
     document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
       var o = guardar(el, 'aria', el.getAttribute('aria-label'));
       el.setAttribute('aria-label', d[el.getAttribute('data-i18n-aria')] || o);
+    });
+    var LEGAL = {
+      priv: { pt: 'privacidade.html', en: 'en/privacy.html', es: 'es/privacidad.html' },
+      del: { pt: 'excluir-conta.html', en: 'en/delete-account.html', es: 'es/eliminar-cuenta.html' }
+    };
+    document.querySelectorAll('[data-legal]').forEach(function (el) {
+      el.setAttribute('href', LEGAL[el.getAttribute('data-legal')][lang]);
     });
     var base = 'mailto:contato@roadforyou.com?subject=';
     document.querySelectorAll('[data-mail-subject]').forEach(function (el) {

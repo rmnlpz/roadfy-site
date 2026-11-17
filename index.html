@@ -155,7 +155,7 @@
     background: var(--marca-escura) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='%2356FF95' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/cover;
     border: 1px solid rgba(86,255,149,.35);
   }
-  .vitrine { display: flex; justify-content: center; position: relative; }
+  .vitrine { display: flex; justify-content: center; align-items: flex-start; position: relative; }
   .vitrine .celular { max-width: 320px; }
   .vitrine.par { gap: 22px; }
   .vitrine.par .celular { max-width: 260px; }
@@ -314,6 +314,14 @@
     .foto-heroica { border-radius: 22px; }
   }
 
+  .trio { position: relative; display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 28px; align-items: center; max-width: 880px; margin: 100px auto 0; }
+  .trio::before { content: ""; position: absolute; inset: -8% -6%; background: radial-gradient(closest-side, rgba(86,255,149,.20), transparent 75%); z-index: -1; }
+  .trio .celular { max-width: none; }
+  .trio .lado:first-child { transform: rotate(-4deg) translateY(18px); }
+  .trio .lado:last-child { transform: rotate(4deg) translateY(18px); }
+  .trio .centro { z-index: 2; box-shadow: 0 0 0 1.5px #3a3532, 0 50px 90px -20px rgba(0,0,0,.9), 0 0 140px -20px rgba(86,255,149,.4); }
+  @media (max-width: 600px) { .trio { grid-template-columns: 1fr; max-width: 290px; margin-top: 64px; } .trio .lado { display: none; } }
+
   /* ---------- aparecer ao rolar ---------- */
   .js .rev { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
   .js .rev.vis { opacity: 1; transform: none; }
@@ -460,9 +468,10 @@
             <li><span data-i18n="routes_3"><b>Uma rota não é de ninguém.</b> Ela sobrevive a quem a cadastrou, e a galeria dela são as fotos de quem foi.</span></li>
             <li><span data-i18n="routes_4"><b>Planeje sem sair do lugar.</b> Marque as paradas, e o caminho entre elas é gravado quando você pilotar.</span></li>
       </ul>
-      <div class="vitrine par brilho rev" style="margin-top:90px; gap:28px">
-        <div class="celular"><img src="img/tela-rotas.webp" alt="Catálogo de rotas com busca, filtros e o cartão da rota Poção, Santa Maria, Jacu" data-i18n-alt="a_rotas" width="720" height="1493" loading="lazy"></div>
-        <div class="celular"><img src="img/tela-planejar.webp" alt="Tela Planejar rota com nome, descrição, cidade e paradas" data-i18n-alt="a_planejar" width="720" height="1493" loading="lazy"></div>
+      <div class="trio rev">
+        <div class="celular lado"><img src="img/tela-rotas.webp" alt="Catálogo de rotas com busca, filtros e o cartão da rota Poção, Santa Maria, Jacu" data-i18n-alt="a_rotas" width="720" height="1493" loading="lazy"></div>
+        <div class="celular centro"><img src="img/tela-mapa.webp" alt="Mapa de rotas do Roadfy em satélite, com o traçado de uma rota em verde" data-i18n-alt="a_mapa" width="720" height="1491" loading="lazy"></div>
+        <div class="celular lado"><img src="img/tela-planejar.webp" alt="Tela Planejar rota com nome, descrição, cidade e paradas" data-i18n-alt="a_planejar" width="720" height="1493" loading="lazy"></div>
       </div>
     </div>
   </section>
@@ -563,7 +572,7 @@
       </div>
       <div class="cinco">
         <div class="cartao familia rev" style="grid-column: span 2"><div class="degraus" aria-hidden="true"><i class="medalha on">100</i><i class="medalha on">1k</i><i class="medalha ">10k</i><i class="medalha ">40k</i></div><h3 data-i18n="f1_t">Quilometragem</h3><p data-i18n="f1_p">Tudo o que você já rodou com o GPS ligado.</p><small class="unid">km</small><p class="nomes" data-i18n="f1_n">De “Esquentou o motor” a “Volta ao mundo”</p></div>
-        <div class="cartao familia rev" style="grid-column: span 2"><div class="degraus" aria-hidden="true"><i class="medalha on">5</i><i class="medalha on">24</i><i class="medalha ">100</i><i class="medalha ">1k</i></div><h3 data-i18n="f2_t">Tempo na sela</h3><p data-i18n="f2_p">Horas de rolê gravado, paradas incluídas.</p><small class="unid">h</small><p class="nomes" data-i18n="f2_n">De “Primeiras horas” a “Mil horas de vento na cara”</p></div>
+        <div class="cartao familia rev" style="grid-column: span 2"><div class="degraus" aria-hidden="true"><i class="medalha on">5</i><i class="medalha on">24</i><i class="medalha ">100</i><i class="medalha ">1k</i></div><h3 data-i18n="f2_t">Tempo na estrada</h3><p data-i18n="f2_p">Horas de rolê gravado, paradas incluídas.</p><small class="unid">h</small><p class="nomes" data-i18n="f2_n">De “Primeiras horas” a “Mil horas de vento na cara”</p></div>
         <div class="cartao familia rev" style="grid-column: span 2"><div class="degraus" aria-hidden="true"><i class="medalha on">1</i><i class="medalha ">5</i><i class="medalha ">25</i><i class="medalha ">50</i></div><h3 data-i18n="f3_t">Rotas abertas</h3><p data-i18n="f3_p">Rotas suas que entraram no catálogo para os outros usarem.</p><small class="unid"><span data-i18n="unit_routes">rotas</span></small><p class="nomes" data-i18n="f3_n">De “Abriu caminho” a “Mapa vivo”</p></div>
         <div class="cartao familia rev" style="grid-column: span 3"><div class="degraus" aria-hidden="true"><i class="medalha on">1</i><i class="medalha on">5</i><i class="medalha on">25</i><i class="medalha ">50</i></div><h3 data-i18n="f4_t">Rotas encaradas</h3><p data-i18n="f4_p">Rotas do catálogo que você percorreu até o fim.</p><small class="unid"><span data-i18n="unit_routes">rotas</span></small><p class="nomes" data-i18n="f4_n">De “Primeira missão” a “Colecionador de estradas”</p></div>
         <div class="cartao familia rev" style="grid-column: span 3"><div class="degraus" aria-hidden="true"><i class="medalha on">3</i><i class="medalha on">10</i><i class="medalha ">50</i><i class="medalha ">100</i></div><h3 data-i18n="f5_t">Cidades</h3><p data-i18n="f5_p">Cidades por onde seu GPS já passou.</p><small class="unid"><span data-i18n="unit_cities">cidades</span></small><p class="nomes" data-i18n="f5_n">De “Três placas” a “Pé de vento”</p></div>
@@ -726,8 +735,8 @@
   <div class="wrap">
     <a class="logo" href="#topo"><img src="img/icone.webp" alt="" width="32" height="32">Roadfy</a>
     <nav aria-label="Rodapé" data-i18n-aria="foot_aria">
-      <a href="privacidade.html" data-i18n="foot_priv">Política de Privacidade</a>
-      <a href="excluir-conta.html" data-i18n="foot_del">Excluir sua conta</a>
+      <a href="privacidade.html" data-legal="priv" data-i18n="foot_priv">Política de Privacidade</a>
+      <a href="excluir-conta.html" data-legal="del" data-i18n="foot_del">Excluir sua conta</a>
       <a href="mailto:contato@roadforyou.com">contato@roadforyou.com</a>
     </nav>
     <span>© 2026 Roadfy</span>
