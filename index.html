@@ -276,6 +276,44 @@
     .grupo-card { margin-left: 0; }
   }
 
+
+  /* ---------- rolê em grupo ---------- */
+  .passos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; counter-reset: p; }
+  .passo { position: relative; padding-top: 30px; }
+  .passo .num {
+    display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%;
+    background: var(--marca); color: #04130A; font-weight: 800; font-size: 1.1rem; box-shadow: 0 8px 30px -6px rgba(86,255,149,.5);
+  }
+  .passo h3 { margin: 18px 0 8px; }
+  .passo p { color: var(--suave); font-size: .96rem; }
+  .passo:not(:last-child)::after {
+    content: ""; position: absolute; top: 52px; left: 78px; right: -20px; height: 2px;
+    background: repeating-linear-gradient(90deg, rgba(86,255,149,.55) 0 6px, transparent 6px 12px);
+  }
+  .ilustra2 { display: grid; grid-template-columns: 1.15fr .85fr; gap: 16px; }
+  .mini-mapa, .mini-chat { position: relative; background: var(--caixa); border: 1px solid var(--borda); border-radius: var(--raio); padding: 14px; overflow: hidden; }
+  .mini-mapa svg { display: block; width: 100%; border-radius: 12px; }
+  .mini-mapa .pt circle:last-child { animation: pulsa 3s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+  .legenda { display: block; margin-top: 12px; color: var(--suave); font-size: .82rem; font-weight: 600; }
+  .mini-chat { display: flex; flex-direction: column; gap: 10px; justify-content: center; }
+  .balao { display: grid; gap: 7px; padding: 12px 14px; border-radius: 16px; }
+  .balao.b1 { width: 88%; }
+  .balao.b2 { width: 72%; }
+  .balao.b1 { background: var(--caixa-2); border-bottom-left-radius: 4px; }
+  .balao.b2 { background: var(--marca-escura); border: 1px solid rgba(86,255,149,.3); border-bottom-right-radius: 4px; align-self: flex-end; }
+  .balao .barra-fina { background: #4a4440; height: 8px; }
+  .balao.b2 .barra-fina { background: rgba(86,255,149,.45); }
+  .w30 { width: 30%; } .w70 { width: 70%; } .w80 { width: 80%; }
+  .foto-heroica { border-radius: 32px; box-shadow: 0 40px 100px -30px rgba(0,0,0,.9), 0 0 120px -40px rgba(86,255,149,.3); aspect-ratio: 2000 / 1126; }
+  .lista-2 { grid-template-columns: 1fr 1fr; gap: 22px 56px; margin-top: 48px; }
+  @media (max-width: 900px) {
+    .passos { grid-template-columns: 1fr; }
+    .passo:not(:last-child)::after { display: none; }
+    .ilustra2 { grid-template-columns: 1fr; }
+    .lista-2 { grid-template-columns: 1fr; margin-top: 32px; }
+    .foto-heroica { border-radius: 22px; }
+  }
+
   /* ---------- aparecer ao rolar ---------- */
   .js .rev { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
   .js .rev.vis { opacity: 1; transform: none; }
@@ -413,19 +451,15 @@
         <h2 data-i18n="routes_h2">Descubra o caminho <span class="verde">antes de sair de casa.</span></h2>
         <p class="lead" data-i18n="routes_lead">Busque por CEP, cidade, estado ou nome. Veja o traçado no mapa, as paradas, o que a moto precisa ter e a nota de quem já percorreu.</p>
       </div>
-      <div class="dupla" style="gap:50px">
-        <div class="foto-larga rev" style="aspect-ratio: 16/9">
-          <img src="img/foto-estrada.webp" alt="Estrada de terra ao pôr do sol vista do guidão de uma moto" data-i18n-alt="a_estrada" width="993" height="452" loading="lazy">
-        </div>
-        <div class="rev">
-          <ul class="lista" style="gap:20px">
+      <div class="foto-larga foto-heroica rev">
+        <img src="img/foto-trilha.webp" alt="Capacete sobre um muro de pedra, com o vale e as serras ao fundo" data-i18n-alt="a_trilha" width="2000" height="1126" loading="lazy">
+      </div>
+      <ul class="lista lista-2 rev">
             <li><span data-i18n="routes_1"><b>Mapa de rotas.</b> Cada marcador é uma rota. Toque nele e o traçado aparece na hora.</span></li>
             <li><span data-i18n="routes_2"><b>Mais percorridas, melhor avaliadas, recentes.</b> Ordene do jeito que fizer sentido pro seu fim de semana.</span></li>
             <li><span data-i18n="routes_3"><b>Uma rota não é de ninguém.</b> Ela sobrevive a quem a cadastrou, e a galeria dela são as fotos de quem foi.</span></li>
             <li><span data-i18n="routes_4"><b>Planeje sem sair do lugar.</b> Marque as paradas, e o caminho entre elas é gravado quando você pilotar.</span></li>
-          </ul>
-        </div>
-      </div>
+      </ul>
       <div class="vitrine par brilho rev" style="margin-top:90px; gap:28px">
         <div class="celular"><img src="img/tela-rotas.webp" alt="Catálogo de rotas com busca, filtros e o cartão da rota Poção, Santa Maria, Jacu" data-i18n-alt="a_rotas" width="720" height="1493" loading="lazy"></div>
         <div class="celular"><img src="img/tela-planejar.webp" alt="Tela Planejar rota com nome, descrição, cidade e paradas" data-i18n-alt="a_planejar" width="720" height="1493" loading="lazy"></div>
@@ -575,6 +609,54 @@
           <li><span data-i18n="clubes_4"><b>Conversa e posição no dia.</b> Cada grupo tem chat próprio e mostra onde cada um está no dia do encontro.</span></li>
           <li><span data-i18n="clubes_5"><b>Você escolhe o que aparece.</b> Mostre no seu perfil só os clubes que quiser.</span></li>
         </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ROLÊ EM GRUPO -->
+  <section id="grupos" style="border-top:1px solid var(--borda)">
+    <div class="wrap">
+      <div class="cab rev">
+        <span class="rotulo" data-i18n="grp_label">Rolê em grupo</span>
+        <h2 data-i18n="grp_h2">Convide a turma. <span class="verde">Rodem a mesma rota.</span></h2>
+        <p class="lead" data-i18n="grp_lead">Um grupo é uma rota mais um combinado. Escolha o caminho, marque o dia e chame os amigos por link. O resto o Roadfy organiza.</p>
+      </div>
+      <div class="passos">
+        <div class="cartao passo rev"><span class="num" aria-hidden="true">1</span><h3 data-i18n="s1_t">Escolha a rota</h3><p data-i18n="s1_p">Uma do catálogo ou uma que você planejou. Se ainda não foi gravada, o grupo vale pelas paradas e pelo horário.</p></div>
+        <div class="cartao passo rev"><span class="num" aria-hidden="true">2</span><h3 data-i18n="s2_t">Marque o dia</h3><p data-i18n="s2_p">Data, hora e ponto de encontro. Ainda não decidiram? Acertem no chat.</p></div>
+        <div class="cartao passo rev"><span class="num" aria-hidden="true">3</span><h3 data-i18n="s3_t">Convide por link</h3><p data-i18n="s3_p">Mande o link do jeito que preferir e cada um entra no grupo. Se for de um clube, dá para chamar o clube inteiro.</p></div>
+        <div class="cartao passo rev"><span class="num" aria-hidden="true">4</span><h3 data-i18n="s4_t">Rodem juntos</h3><p data-i18n="s4_p">Conversem no chat do grupo e, no dia, cada um vê onde os outros estão.</p></div>
+      </div>
+      <div class="dupla grp-vis" style="margin-top:64px; gap:50px">
+        <div class="ilustra2 rev" role="img" aria-label="Ilustração do mapa e do chat de um grupo" data-i18n-aria="grp_vis_aria">
+          <div class="mini-mapa">
+            <svg viewBox="0 0 360 220" aria-hidden="true">
+              <defs><pattern id="gr" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#2A2625" stroke-width="1"/></pattern></defs>
+              <rect width="360" height="220" fill="url(#gr)"/>
+              <path d="M20 190 C 70 190, 80 120, 140 120 S 210 160, 250 90 S 310 40, 345 34" fill="none" stroke="#56FF95" stroke-width="5" stroke-linecap="round" opacity=".9"/>
+              <g class="pt"><circle cx="250" cy="90" r="11" fill="#56FF95"/><circle cx="250" cy="90" r="19" fill="none" stroke="#56FF95" stroke-opacity=".4"/></g>
+              <circle cx="188" cy="136" r="9" fill="#E7B14A"/>
+              <circle cx="120" cy="124" r="9" fill="#60A5FA"/>
+              <circle cx="62" cy="176" r="9" fill="#F472B6"/>
+              <g transform="translate(305 40)"><path d="M0 0v-26" stroke="#A8A29E" stroke-width="2"/><path d="M0 -26h20l-5 6 5 6H0z" fill="#A8A29E"/></g>
+            </svg>
+            <span class="legenda" data-i18n="grp_map">Onde cada um está</span>
+          </div>
+          <div class="mini-chat">
+            <div class="balao b1"><span class="barra-fina w70"></span><span class="barra-fina w40"></span></div>
+            <div class="balao b2"><span class="barra-fina w50"></span></div>
+            <div class="balao b1"><span class="barra-fina w60"></span></div>
+            <div class="balao b2"><span class="barra-fina w80"></span><span class="barra-fina w30"></span></div>
+            <span class="legenda" data-i18n="g_chat">Chat do grupo</span>
+          </div>
+        </div>
+        <div class="rev">
+          <ul class="lista" style="gap:20px">
+            <li><span data-i18n="grp_priv1"><b>Só vê quem se deixa ver.</b> A posição só é publicada enquanto a tela do grupo está aberta, e quem não compartilha também não vê ninguém.</span></li>
+            <li><span data-i18n="grp_priv2"><b>Grupo privado.</b> Não aparece na busca nem no mapa: só entra quem recebe o convite.</span></li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
