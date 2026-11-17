@@ -73,6 +73,14 @@
   }
   .barra nav a.btn-mini:hover { color: #04130A; filter: brightness(1.08); }
 
+  .idiomas { display: flex; gap: 2px; padding: 3px; border: 1px solid var(--borda); border-radius: 999px; }
+  .idiomas button {
+    font: 700 .75rem/1 inherit; font-family: inherit; letter-spacing: .06em; color: var(--suave); background: none; border: 0;
+    padding: 7px 9px; border-radius: 999px; cursor: pointer; transition: color .15s, background .15s;
+  }
+  .idiomas button:hover { color: var(--texto); }
+  .idiomas button[aria-pressed="true"] { background: var(--marca); color: #04130A; }
+
   /* ---------- botões ---------- */
   .btn {
     display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700;
@@ -239,10 +247,13 @@
     .faixa div:nth-child(n+3) { border-top: 1px solid var(--borda); }
     .privado { padding: 36px 24px; }
     .barra nav a:not(.btn-mini) { display: none; }
+    .barra nav { gap: 12px; }
+    .barra nav a.btn-mini { white-space: nowrap; }
     .palco { height: min(560px, 120vw); margin-top: 10px; }
     .palco .c1 { left: 2%; width: 46%; }
     .palco .c2 { right: 2%; width: 50%; }
   }
+  @media (max-width: 520px) { .barra nav a.btn-mini { display: none; } }
 </style>
 </head>
 <body>
@@ -252,10 +263,15 @@
   <div class="wrap">
     <a class="logo" href="#topo"><img src="img/icone.webp" alt="" width="32" height="32">Roadfy</a>
     <nav>
-      <a href="#recursos">Recursos</a>
-      <a href="#notas">Três notas</a>
-      <a href="#privacidade">Privacidade</a>
-      <a class="btn-mini" href="#baixar">Quero o app</a>
+      <a href="#recursos" data-i18n="nav_features">Recursos</a>
+      <a href="#notas" data-i18n="nav_notes">Três notas</a>
+      <a href="#privacidade" data-i18n="nav_privacy">Privacidade</a>
+      <div class="idiomas" role="group" aria-label="Idioma / Language / Idioma">
+        <button type="button" data-lang="pt" lang="pt">PT</button>
+        <button type="button" data-lang="en" lang="en">EN</button>
+        <button type="button" data-lang="es" lang="es">ES</button>
+      </div>
+      <a class="btn-mini" href="#baixar" data-i18n="nav_cta">Quero o app</a>
     </nav>
   </div>
 </header>
@@ -270,31 +286,31 @@
     </svg>
     <div class="wrap">
       <div>
-        <span class="selo"><i></i> Feito por quem pilota</span>
-        <h1>Cada rolê vira <span class="verde">um mapa</span> pra contar.</h1>
-        <p class="lead">Grave a trilha por GPS, diga como o caminho é de verdade e descubra rotas de outros motociclistas antes de sair de casa.</p>
+        <span class="selo"><i></i> <span data-i18n="badge">Feito por quem pilota</span></span>
+        <h1 data-i18n="h1">Cada rolê vira <span class="verde">um mapa</span> pra contar.</h1>
+        <p class="lead" data-i18n="hero_lead">Grave a trilha por GPS, diga como o caminho é de verdade e descubra rotas de outros motociclistas antes de sair de casa.</p>
         <div class="acoes" id="baixar">
-          <a class="btn btn-cheio" href="mailto:contato@roadforyou.com?subject=Quero%20testar%20o%20Roadfy">
+          <a class="btn btn-cheio" href="mailto:contato@roadforyou.com?subject=Quero%20testar%20o%20Roadfy" data-mail-subject>
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3.2c-.2.2-.3.5-.3.9v15.8c0 .4.1.7.3.9L13 12 4 3.2zm10.1 9.8l2.6 2.6-9.5 5.4 6.9-8zm4.3-1.6c.6.4.6 1.2 0 1.6l-1.6.9-2.9-2.8 2.9-2.8 1.6 1.1zM7.2 2.9l9.5 5.4-2.6 2.6-6.9-8z"/></svg>
-            Quero testar no Android
+            <span data-i18n="cta_test">Quero testar no Android</span>
           </a>
-          <a class="btn btn-vazio" href="#recursos">Ver como funciona</a>
+          <a class="btn btn-vazio" href="#recursos" data-i18n="cta_how">Ver como funciona</a>
         </div>
-        <p class="nota-mini">Em breve no Google Play · Android</p>
+        <p class="nota-mini" data-i18n="soon">Em breve no Google Play · Android</p>
       </div>
       <div class="palco" aria-hidden="false">
-        <div class="celular c1"><img src="img/tela-mapa.webp" alt="Mapa de rotas do Roadfy em satélite, com o traçado de uma rota em verde" width="720" height="1491" fetchpriority="high"></div>
-        <div class="celular c2"><img src="img/tela-feed.webp" alt="Feed do Roadfy com a foto de uma moto em uma trilha e o resumo do rolê: 86,2 km" width="720" height="1493" fetchpriority="high"></div>
+        <div class="celular c1"><img src="img/tela-mapa.webp" alt="Mapa de rotas do Roadfy em satélite, com o traçado de uma rota em verde" data-i18n-alt="a_mapa" width="720" height="1491" fetchpriority="high"></div>
+        <div class="celular c2"><img src="img/tela-feed.webp" alt="Feed do Roadfy com a foto de uma moto em uma trilha e o resumo do rolê: 86,2 km" data-i18n-alt="a_feed" width="720" height="1493" fetchpriority="high"></div>
       </div>
     </div>
   </div>
 
   <div class="faixa">
     <div class="wrap">
-      <div><b>GPS</b><span>grava mesmo sem sinal</span></div>
-      <div><b>3 notas</b><span>dificuldade, piso e beleza</span></div>
-      <div><b>300 m</b><span>da sua casa ficam de fora</span></div>
-      <div><b>0 anúncios</b><span>nem rastreio de publicidade</span></div>
+      <div><b>GPS</b><span data-i18n="stat1">grava mesmo sem sinal</span></div>
+      <div><b data-i18n="stat2b">3 notas</b><span data-i18n="stat2">dificuldade, piso e beleza</span></div>
+      <div><b>300 m</b><span data-i18n="stat3">da sua casa ficam de fora</span></div>
+      <div><b data-i18n="stat4b">0 anúncios</b><span data-i18n="stat4">nem rastreio de publicidade</span></div>
     </div>
   </div>
 
@@ -302,17 +318,17 @@
   <section id="recursos">
     <div class="wrap dupla">
       <div class="texto rev">
-        <span class="rotulo">Gravar</span>
-        <h2>Liga, pilota, <span class="verde">esquece o celular.</span></h2>
-        <p class="lead">Trilha é lugar sem cobertura, e o sistema fecha aplicativos quando quer. No Roadfy, cada ponto do GPS é salvo no aparelho no instante em que chega.</p>
+        <span class="rotulo" data-i18n="rec_label">Gravar</span>
+        <h2 data-i18n="rec_h2">Liga, pilota, <span class="verde">esquece o celular.</span></h2>
+        <p class="lead" data-i18n="rec_lead">Trilha é lugar sem cobertura, e o sistema fecha aplicativos quando quer. No Roadfy, cada ponto do GPS é salvo no aparelho no instante em que chega.</p>
         <ul class="lista">
-          <li>Sobrevive à tela apagada, à bateria fraca e ao app ser encerrado.</li>
-          <li>Sem rede? O envio acontece sozinho depois, quando houver sinal.</li>
-          <li>Publique no sofá, dias depois. O rolê continua seu.</li>
+          <li data-i18n="rec_1">Sobrevive à tela apagada, à bateria fraca e ao app ser encerrado.</li>
+          <li data-i18n="rec_2">Sem rede? O envio acontece sozinho depois, quando houver sinal.</li>
+          <li data-i18n="rec_3">Publique no sofá, dias depois. O rolê continua seu.</li>
         </ul>
       </div>
       <div class="vitrine brilho rev">
-        <div class="celular"><img src="img/tela-gravar.webp" alt="Tela de gravação com cronômetro, distância, subida e os botões Pausar e Finalizar" width="720" height="1493" loading="lazy"></div>
+        <div class="celular"><img src="img/tela-gravar.webp" alt="Tela de gravação com cronômetro, distância, subida e os botões Pausar e Finalizar" data-i18n-alt="a_gravar" width="720" height="1493" loading="lazy"></div>
       </div>
     </div>
   </section>
@@ -321,18 +337,18 @@
   <section style="padding-top:0">
     <div class="wrap dupla inverte">
       <div class="texto rev">
-        <span class="rotulo">O rolê</span>
-        <h2>Veja <span class="verde">por onde você passou.</span></h2>
-        <p class="lead">Terminou? O Roadfy lê o seu GPS e conta o caminho: cidades na ordem, estado, rodovias e o perfil de altitude da subida.</p>
+        <span class="rotulo" data-i18n="ride_label">O rolê</span>
+        <h2 data-i18n="ride_h2">Veja <span class="verde">por onde você passou.</span></h2>
+        <p class="lead" data-i18n="ride_lead">Terminou? O Roadfy lê o seu GPS e conta o caminho: cidades na ordem, estado, rodovias e o perfil de altitude da subida.</p>
         <ul class="lista">
-          <li>Traçado sobre o mapa de satélite, com fotos do caminho.</li>
-          <li>Distância, tempo, subida e velocidade, tudo no resumo.</li>
-          <li>Rodovias estaduais identificadas automaticamente.</li>
+          <li data-i18n="ride_1">Traçado sobre o mapa de satélite, com fotos do caminho.</li>
+          <li data-i18n="ride_2">Distância, tempo, subida e velocidade, tudo no resumo.</li>
+          <li data-i18n="ride_3">Rodovias estaduais identificadas automaticamente.</li>
         </ul>
       </div>
       <div class="vitrine par brilho rev">
-        <div class="celular"><img src="img/tela-role.webp" alt="Tela do rolê com o traçado verde no mapa de satélite, fotos e estatísticas" width="720" height="1493" loading="lazy"></div>
-        <div class="celular"><img src="img/tela-por-onde-passou.webp" alt="Tela Por onde passou: gráfico de altitude, 4 cidades, 1 estado e 2 rodovias" width="720" height="1493" loading="lazy"></div>
+        <div class="celular"><img src="img/tela-role.webp" alt="Tela do rolê com o traçado verde no mapa de satélite, fotos e estatísticas" data-i18n-alt="a_role" width="720" height="1493" loading="lazy"></div>
+        <div class="celular"><img src="img/tela-por-onde-passou.webp" alt="Tela Por onde passou: gráfico de altitude, 4 cidades, 1 estado e 2 rodovias" data-i18n-alt="a_onde" width="720" height="1493" loading="lazy"></div>
       </div>
     </div>
   </section>
@@ -341,26 +357,26 @@
   <section class="notas" style="border-top:1px solid var(--borda)">
     <div class="wrap">
       <div class="cab rev">
-        <span class="rotulo">Rotas</span>
-        <h2>Descubra o caminho <span class="verde">antes de sair de casa.</span></h2>
-        <p class="lead">Busque por CEP, cidade, estado ou nome. Veja o traçado no mapa, as paradas, o que a moto precisa ter e a nota de quem já percorreu.</p>
+        <span class="rotulo" data-i18n="routes_label">Rotas</span>
+        <h2 data-i18n="routes_h2">Descubra o caminho <span class="verde">antes de sair de casa.</span></h2>
+        <p class="lead" data-i18n="routes_lead">Busque por CEP, cidade, estado ou nome. Veja o traçado no mapa, as paradas, o que a moto precisa ter e a nota de quem já percorreu.</p>
       </div>
       <div class="dupla" style="gap:50px">
         <div class="foto-larga rev" style="aspect-ratio: 16/9">
-          <img src="img/foto-estrada.webp" alt="Estrada de terra ao pôr do sol vista do guidão de uma moto" width="993" height="452" loading="lazy">
+          <img src="img/foto-estrada.webp" alt="Estrada de terra ao pôr do sol vista do guidão de uma moto" data-i18n-alt="a_estrada" width="993" height="452" loading="lazy">
         </div>
         <div class="rev">
           <ul class="lista" style="gap:20px">
-            <li><span><b>Mapa de rotas.</b> Cada marcador é uma rota. Toque nele e o traçado aparece na hora.</span></li>
-            <li><span><b>Mais percorridas, melhor avaliadas, recentes.</b> Ordene do jeito que fizer sentido pro seu fim de semana.</span></li>
-            <li><span><b>Uma rota não é de ninguém.</b> Ela sobrevive a quem a cadastrou, e a galeria dela são as fotos de quem foi.</span></li>
-            <li><span><b>Planeje sem sair do lugar.</b> Marque as paradas, e o caminho entre elas é gravado quando você pilotar.</span></li>
+            <li><span data-i18n="routes_1"><b>Mapa de rotas.</b> Cada marcador é uma rota. Toque nele e o traçado aparece na hora.</span></li>
+            <li><span data-i18n="routes_2"><b>Mais percorridas, melhor avaliadas, recentes.</b> Ordene do jeito que fizer sentido pro seu fim de semana.</span></li>
+            <li><span data-i18n="routes_3"><b>Uma rota não é de ninguém.</b> Ela sobrevive a quem a cadastrou, e a galeria dela são as fotos de quem foi.</span></li>
+            <li><span data-i18n="routes_4"><b>Planeje sem sair do lugar.</b> Marque as paradas, e o caminho entre elas é gravado quando você pilotar.</span></li>
           </ul>
         </div>
       </div>
       <div class="vitrine par brilho rev" style="margin-top:90px; gap:28px">
-        <div class="celular"><img src="img/tela-rotas.webp" alt="Catálogo de rotas com busca, filtros e o cartão da rota Poção, Santa Maria, Jacu" width="720" height="1493" loading="lazy"></div>
-        <div class="celular"><img src="img/tela-planejar.webp" alt="Tela Planejar rota com nome, descrição, cidade e paradas" width="720" height="1493" loading="lazy"></div>
+        <div class="celular"><img src="img/tela-rotas.webp" alt="Catálogo de rotas com busca, filtros e o cartão da rota Poção, Santa Maria, Jacu" data-i18n-alt="a_rotas" width="720" height="1493" loading="lazy"></div>
+        <div class="celular"><img src="img/tela-planejar.webp" alt="Tela Planejar rota com nome, descrição, cidade e paradas" data-i18n-alt="a_planejar" width="720" height="1493" loading="lazy"></div>
       </div>
     </div>
   </section>
@@ -369,25 +385,25 @@
   <section id="notas">
     <div class="wrap">
       <div class="cab rev">
-        <span class="rotulo">Avaliação de verdade</span>
-        <h2>Três notas, <span class="verde">não uma.</span></h2>
-        <p class="lead">Uma trilha pode ser difícil, de piso ruim e linda ao mesmo tempo. Uma estrela só esconde exatamente o que faz alguém decidir se vai ou não.</p>
+        <span class="rotulo" data-i18n="notes_label">Avaliação de verdade</span>
+        <h2 data-i18n="notes_h2">Três notas, <span class="verde">não uma.</span></h2>
+        <p class="lead" data-i18n="notes_lead">Uma trilha pode ser difícil, de piso ruim e linda ao mesmo tempo. Uma estrela só esconde exatamente o que faz alguém decidir se vai ou não.</p>
       </div>
       <div class="tres">
         <div class="cartao rev">
           <div class="medidor m1" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
-          <h3>Dificuldade</h3>
-          <p>De 1 a 5, do passeio de domingo ao hardcore. Dá pra filtrar até onde você topa ir.</p>
+          <h3 data-i18n="n1_h">Dificuldade</h3>
+          <p data-i18n="n1_p">De 1 a 5, do passeio de domingo ao hardcore. Dá pra filtrar até onde você topa ir.</p>
         </div>
         <div class="cartao rev">
           <div class="medidor" aria-hidden="true" style="--c:#E7B14A"><i class="on" style="background:#E7B14A"></i><i class="on" style="background:#E7B14A"></i><i class="on" style="background:#E7B14A"></i><i class="on" style="background:#E7B14A"></i><i style="background:#E7B14A"></i></div>
-          <h3>Qualidade do piso</h3>
-          <p>Terra, areia, pedra, lama, grama ou asfalto. Saiba o que vai debaixo do pneu antes de chegar lá.</p>
+          <h3 data-i18n="n2_h">Qualidade do piso</h3>
+          <p data-i18n="n2_p">Terra, areia, pedra, lama, grama ou asfalto. Saiba o que vai debaixo do pneu antes de chegar lá.</p>
         </div>
         <div class="cartao rev">
           <div class="medidor verde-todo" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
-          <h3>Beleza</h3>
-          <p>A nota de natureza. Porque às vezes o caminho vale mais que o destino.</p>
+          <h3 data-i18n="n3_h">Beleza</h3>
+          <p data-i18n="n3_p">A nota de natureza. Porque às vezes o caminho vale mais que o destino.</p>
         </div>
       </div>
     </div>
@@ -397,18 +413,18 @@
   <section class="notas" style="border-top:1px solid var(--borda)">
     <div class="wrap dupla">
       <div class="texto rev">
-        <span class="rotulo">Compartilhar</span>
-        <h2>Seu rolê <span class="verde">pronto pro story.</span></h2>
-        <p class="lead">Um cartão com o mapa, o traçado, a dificuldade e os números do dia. Sai bonito sem você fazer nada, e a velocidade só aparece se você quiser.</p>
+        <span class="rotulo" data-i18n="share_label">Compartilhar</span>
+        <h2 data-i18n="share_h2">Seu rolê <span class="verde">pronto pro story.</span></h2>
+        <p class="lead" data-i18n="share_lead">Um cartão com o mapa, o traçado, a dificuldade e os números do dia. Sai bonito sem você fazer nada, e a velocidade só aparece se você quiser.</p>
         <ul class="lista">
-          <li>Média, máxima e tempo em movimento, com chave pra esconder.</li>
-          <li>Perfil de piloto: a moto, o capacete, os quilômetros e os selos.</li>
-          <li>Clubes para rodar junto: rota, data, ponto de encontro e conversa própria.</li>
+          <li data-i18n="share_1">Média, máxima e tempo em movimento, com chave pra esconder.</li>
+          <li data-i18n="share_2">Perfil de piloto: a moto, o capacete, os quilômetros e os selos.</li>
+          <li data-i18n="share_3">Clubes para rodar junto: rota, data, ponto de encontro e conversa própria.</li>
         </ul>
       </div>
       <div class="vitrine par brilho rev">
-        <div class="celular"><img src="img/tela-story.webp" alt="Tela de compartilhar com o cartão do rolê para stories: mapa, traçado, 86,2 km e 3h06" width="720" height="1493" loading="lazy"></div>
-        <div class="celular"><img src="img/tela-piloto.webp" alt="Perfil do piloto com a moto, o capacete e 504,1 km rodados" width="720" height="1493" loading="lazy"></div>
+        <div class="celular"><img src="img/tela-story.webp" alt="Tela de compartilhar com o cartão do rolê para stories: mapa, traçado, 86,2 km e 3h06" data-i18n-alt="a_story" width="720" height="1493" loading="lazy"></div>
+        <div class="celular"><img src="img/tela-piloto.webp" alt="Perfil do piloto com a moto, o capacete e 504,1 km rodados" data-i18n-alt="a_piloto" width="720" height="1493" loading="lazy"></div>
       </div>
     </div>
   </section>
@@ -418,24 +434,24 @@
     <div class="wrap">
       <div class="privado rev">
         <div>
-          <span class="rotulo">Privacidade</span>
-          <h2>Seu endereço <span class="verde">não vai junto.</span></h2>
-          <p class="lead" style="margin-bottom:26px">O começo e o fim de uma gravação costumam ser a porta da sua casa. Ao publicar um rolê público, o app corta os primeiros e os últimos 300 metros antes de enviar. Esse trecho não sai do seu aparelho, e nem a gente consegue ver.</p>
+          <span class="rotulo" data-i18n="nav_privacy">Privacidade</span>
+          <h2 data-i18n="priv_h2">Seu endereço <span class="verde">não vai junto.</span></h2>
+          <p class="lead" style="margin-bottom:26px" data-i18n="priv_lead">O começo e o fim de uma gravação costumam ser a porta da sua casa. Ao publicar um rolê público, o app corta os primeiros e os últimos 300 metros antes de enviar. Esse trecho não sai do seu aparelho, e nem a gente consegue ver.</p>
           <ul class="lista">
-            <li>Vem ligado de fábrica, e você decide trilha a trilha.</li>
-            <li>Perfil privado esconde os rolês, e seguir vira pedido.</li>
-            <li>Apague a conta e tudo que ela guarda, pelo app ou por e-mail.</li>
+            <li data-i18n="priv_1">Vem ligado de fábrica, e você decide trilha a trilha.</li>
+            <li data-i18n="priv_2">Perfil privado esconde os rolês, e seguir vira pedido.</li>
+            <li data-i18n="priv_3">Apague a conta e tudo que ela guarda, pelo app ou por e-mail.</li>
           </ul>
         </div>
-        <svg class="raio-svg" viewBox="0 0 360 300" role="img" aria-label="Traçado de um rolê com o começo e o fim cortados">
+        <svg class="raio-svg" viewBox="0 0 360 300" role="img" aria-label="Traçado de um rolê com o começo e o fim cortados" data-i18n-aria="svg_aria">
           <path d="M40 250 C 70 250, 80 200, 110 190" fill="none" stroke="#57534E" stroke-width="6" stroke-dasharray="3 10" stroke-linecap="round"/>
           <path d="M110 190 C 150 175, 150 110, 190 100 S 250 120, 270 70" fill="none" stroke="#56FF95" stroke-width="7" stroke-linecap="round"/>
           <path d="M270 70 C 285 50, 305 52, 322 48" fill="none" stroke="#57534E" stroke-width="6" stroke-dasharray="3 10" stroke-linecap="round"/>
           <circle class="pulsa" cx="40" cy="250" r="30" fill="rgba(86,255,149,.08)" stroke="#56FF95" stroke-opacity=".5" stroke-dasharray="4 5"/>
           <circle class="pulsa" cx="322" cy="48" r="30" fill="rgba(86,255,149,.08)" stroke="#56FF95" stroke-opacity=".5" stroke-dasharray="4 5" style="animation-delay:-1.5s"/>
           <circle cx="40" cy="250" r="6" fill="#57534E"/><circle cx="322" cy="48" r="6" fill="#57534E"/>
-          <text x="40" y="292" text-anchor="middle" fill="#A8A29E">300 m cortados</text>
-          <text x="290" y="24" text-anchor="middle" fill="#A8A29E">300 m cortados</text>
+          <text x="40" y="292" text-anchor="middle" fill="#A8A29E" data-i18n="svg_cut">300 m cortados</text>
+          <text x="290" y="24" text-anchor="middle" fill="#A8A29E" data-i18n="svg_cut">300 m cortados</text>
         </svg>
       </div>
     </div>
@@ -444,30 +460,30 @@
   <!-- GALERIA -->
   <section class="galeria notas" style="border-top:1px solid var(--borda); padding-top:90px">
     <div class="wrap cab rev" style="margin-bottom:0">
-      <span class="rotulo">Por dentro</span>
-      <h2>Tudo no <span class="verde">mesmo app.</span></h2>
+      <span class="rotulo" data-i18n="gal_label">Por dentro</span>
+      <h2 data-i18n="gal_h2">Tudo no <span class="verde">mesmo app.</span></h2>
     </div>
-    <div class="trilho" tabindex="0" aria-label="Capturas de tela do aplicativo">
-      <div class="celular"><img src="img/tela-feed.webp" alt="Feed" width="720" height="1493" loading="lazy"></div>
-      <div class="celular"><img src="img/tela-mapa.webp" alt="Mapa de rotas" width="720" height="1491" loading="lazy"></div>
-      <div class="celular"><img src="img/tela-role.webp" alt="Rolê" width="720" height="1493" loading="lazy"></div>
-      <div class="celular"><img src="img/tela-por-onde-passou.webp" alt="Por onde passou" width="720" height="1493" loading="lazy"></div>
-      <div class="celular"><img src="img/tela-rotas.webp" alt="Catálogo de rotas" width="720" height="1493" loading="lazy"></div>
-      <div class="celular"><img src="img/tela-gravar.webp" alt="Gravação" width="720" height="1493" loading="lazy"></div>
-      <div class="celular"><img src="img/tela-planejar.webp" alt="Planejar rota" width="720" height="1493" loading="lazy"></div>
-      <div class="celular"><img src="img/tela-story.webp" alt="Compartilhar" width="720" height="1493" loading="lazy"></div>
-      <div class="celular"><img src="img/tela-piloto.webp" alt="Perfil do piloto" width="720" height="1493" loading="lazy"></div>
+    <div class="trilho" tabindex="0" aria-label="Capturas de tela do aplicativo" data-i18n-aria="gal_aria">
+      <div class="celular"><img src="img/tela-feed.webp" alt="Feed" data-i18n-alt="g_feed" width="720" height="1493" loading="lazy"></div>
+      <div class="celular"><img src="img/tela-mapa.webp" alt="Mapa de rotas" data-i18n-alt="g_mapa" width="720" height="1491" loading="lazy"></div>
+      <div class="celular"><img src="img/tela-role.webp" alt="Rolê" data-i18n-alt="g_role" width="720" height="1493" loading="lazy"></div>
+      <div class="celular"><img src="img/tela-por-onde-passou.webp" alt="Por onde passou" data-i18n-alt="g_onde" width="720" height="1493" loading="lazy"></div>
+      <div class="celular"><img src="img/tela-rotas.webp" alt="Catálogo de rotas" data-i18n-alt="g_rotas" width="720" height="1493" loading="lazy"></div>
+      <div class="celular"><img src="img/tela-gravar.webp" alt="Gravação" data-i18n-alt="g_gravar" width="720" height="1493" loading="lazy"></div>
+      <div class="celular"><img src="img/tela-planejar.webp" alt="Planejar rota" data-i18n-alt="g_plan" width="720" height="1493" loading="lazy"></div>
+      <div class="celular"><img src="img/tela-story.webp" alt="Compartilhar" data-i18n-alt="g_share" width="720" height="1493" loading="lazy"></div>
+      <div class="celular"><img src="img/tela-piloto.webp" alt="Perfil do piloto" data-i18n-alt="g_piloto" width="720" height="1493" loading="lazy"></div>
     </div>
   </section>
 
   <!-- FINAL -->
   <section class="final">
     <div class="wrap rev">
-      <img class="ic" src="img/icone.webp" alt="Ícone do Roadfy" width="92" height="92" loading="lazy">
-      <h2>O próximo rolê <span class="verde">já pode ser registrado.</span></h2>
-      <p class="lead">O Roadfy está chegando ao Google Play. Quer entrar antes, como testador? Manda um e-mail.</p>
+      <img class="ic" src="img/icone.webp" alt="Ícone do Roadfy" data-i18n-alt="ic_alt" width="92" height="92" loading="lazy">
+      <h2 data-i18n="final_h2">O próximo rolê <span class="verde">já pode ser registrado.</span></h2>
+      <p class="lead" data-i18n="final_lead">O Roadfy está chegando ao Google Play. Quer entrar antes, como testador? Manda um e-mail.</p>
       <div class="acoes">
-        <a class="btn btn-cheio" href="mailto:contato@roadforyou.com?subject=Quero%20testar%20o%20Roadfy">Quero testar no Android</a>
+        <a class="btn btn-cheio" href="mailto:contato@roadforyou.com?subject=Quero%20testar%20o%20Roadfy" data-mail-subject data-i18n="cta_test">Quero testar no Android</a>
       </div>
     </div>
   </section>
@@ -477,9 +493,9 @@
 <footer>
   <div class="wrap">
     <a class="logo" href="#topo"><img src="img/icone.webp" alt="" width="32" height="32">Roadfy</a>
-    <nav aria-label="Rodapé">
-      <a href="privacidade.html">Política de Privacidade</a>
-      <a href="excluir-conta.html">Excluir sua conta</a>
+    <nav aria-label="Rodapé" data-i18n-aria="foot_aria">
+      <a href="privacidade.html" data-i18n="foot_priv">Política de Privacidade</a>
+      <a href="excluir-conta.html" data-i18n="foot_del">Excluir sua conta</a>
       <a href="mailto:contato@roadforyou.com">contato@roadforyou.com</a>
     </nav>
     <span>© 2026 Roadfy</span>
@@ -496,5 +512,6 @@
     els.forEach(function (e) { io.observe(e); });
   })();
 </script>
+<script src="i18n.js"></script>
 </body>
 </html>
