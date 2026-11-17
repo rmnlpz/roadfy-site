@@ -8,7 +8,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-<meta name="description" content="Grave o rolê por GPS, avalie o caminho em três notas e descubra rotas de outros motociclistas. O Roadfy é o app de trilha feito por quem pilota.">
+<meta name="description" content="Grave o rolê por GPS, descubra rotas e rode com a sua turma: clubes, conquistas e a ficha de cada piloto. O Roadfy é o app de trilha feito por quem pilota.">
 <meta name="theme-color" content="#0A0A0A">
 <link rel="canonical" href="https://roadforyou.com/">
 <meta property="og:type" content="website">
@@ -225,6 +225,57 @@
   footer a { text-decoration: none; }
   footer a:hover { color: var(--marca); }
 
+
+  /* ---------- comunidade ---------- */
+  .cinco { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .familia { display: flex; flex-direction: column; }
+  .familia h3 { margin: 22px 0 6px; }
+  .familia p { color: var(--suave); font-size: .96rem; }
+  .familia .unid { color: var(--marca); font-weight: 700; font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; margin-top: 12px; }
+  .familia .nomes { margin-top: auto; padding-top: 14px; color: #D6D3D1; font-size: .88rem; border-top: 1px dashed var(--borda); margin-top: 16px; }
+  .degraus { display: flex; align-items: center; gap: 0; }
+  .degraus .medalha {
+    position: relative; flex: none; width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center;
+    font-style: normal; font-weight: 800; font-size: .86rem; letter-spacing: -.02em;
+    border: 2px solid var(--borda); color: #6B6460; background: var(--fundo);
+  }
+  .degraus .medalha + .medalha { margin-left: 14px; }
+  .degraus .medalha + .medalha::before {
+    content: ""; position: absolute; right: 100%; top: 50%; width: 14px; height: 2px; background: var(--borda);
+  }
+  .degraus .medalha.on { border-color: var(--marca); color: var(--marca); background: var(--marca-escura); box-shadow: 0 0 24px -4px rgba(86,255,149,.45); }
+  .degraus .medalha.on + .medalha.on::before { background: var(--marca); }
+  .nota-selos { text-align: center; color: var(--suave); font-size: .9rem; max-width: 40rem; margin: 34px auto 0; }
+
+  .ilustra { width: 100%; max-width: 420px; display: grid; justify-items: stretch; }
+  .clube-card, .grupo-card {
+    background: var(--caixa); border: 1px solid var(--borda); border-radius: var(--raio); padding: 22px;
+  }
+  .clube-card { display: flex; gap: 16px; align-items: center; border-color: rgba(86,255,149,.35); box-shadow: 0 0 60px -20px rgba(86,255,149,.35); }
+  .brasao {
+    flex: none; width: 64px; height: 64px; border-radius: 15px; display: grid; place-items: center;
+    background: var(--marca-escura); border: 1.5px solid var(--marca); color: var(--marca);
+  }
+  .clube-info { flex: 1; display: grid; gap: 9px; min-width: 0; }
+  .barra-fina { display: block; height: 10px; border-radius: 6px; background: #3b3633; }
+  .barra-fina.suave { background: var(--caixa-2); height: 8px; }
+  .w40 { width: 40%; } .w50 { width: 50%; } .w60 { width: 60%; }
+  .chips, .chat-g { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { padding: 5px 11px; border-radius: 999px; background: var(--caixa-2); color: #D6D3D1; font-size: .78rem; font-weight: 700; }
+  .chip.v { background: var(--marca-escura); color: var(--marca); }
+  .liga { width: 2px; height: 28px; margin: 0 auto; background: repeating-linear-gradient(var(--marca) 0 5px, transparent 5px 10px); opacity: .6; }
+  .grupo-card { display: grid; gap: 14px; margin-left: 28px; }
+  .grupo-t { font-size: 1.05rem; letter-spacing: -.02em; }
+  .linha-g { display: flex; align-items: center; gap: 14px; }
+  .linha-g > span:first-child { flex: none; width: 8.5em; color: var(--suave); font-size: .85rem; }
+  .linha-g .barra-fina { flex: none; }
+  .chat-g { margin-top: 4px; }
+  @media (max-width: 900px) {
+    .cinco { grid-template-columns: 1fr; }
+    .cinco > .familia { grid-column: auto !important; }
+    .grupo-card { margin-left: 0; }
+  }
+
   /* ---------- aparecer ao rolar ---------- */
   .js .rev { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
   .js .rev.vis { opacity: 1; transform: none; }
@@ -264,6 +315,7 @@
     <a class="logo" href="#topo"><img src="img/icone.webp" alt="" width="32" height="32">Roadfy</a>
     <nav>
       <a href="#recursos" data-i18n="nav_features">Recursos</a>
+      <a href="#comunidade" data-i18n="nav_community">Comunidade</a>
       <a href="#notas" data-i18n="nav_notes">Três notas</a>
       <a href="#privacidade" data-i18n="nav_privacy">Privacidade</a>
       <div class="idiomas" role="group" aria-label="Idioma / Language / Idioma">
@@ -288,7 +340,7 @@
       <div>
         <span class="selo"><i></i> <span data-i18n="badge">Feito por quem pilota</span></span>
         <h1 data-i18n="h1">Cada rolê vira <span class="verde">um mapa</span> pra contar.</h1>
-        <p class="lead" data-i18n="hero_lead">Grave a trilha por GPS, diga como o caminho é de verdade e descubra rotas de outros motociclistas antes de sair de casa.</p>
+        <p class="lead" data-i18n="hero_lead">Grave a trilha por GPS, descubra rotas e rode com a sua turma: clubes, conquistas e a ficha de cada piloto.</p>
         <div class="acoes" id="baixar">
           <a class="btn btn-cheio" href="mailto:contato@roadforyou.com?subject=Quero%20testar%20o%20Roadfy" data-mail-subject>
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3.2c-.2.2-.3.5-.3.9v15.8c0 .4.1.7.3.9L13 12 4 3.2zm10.1 9.8l2.6 2.6-9.5 5.4 6.9-8zm4.3-1.6c.6.4.6 1.2 0 1.6l-1.6.9-2.9-2.8 2.9-2.8 1.6 1.1zM7.2 2.9l9.5 5.4-2.6 2.6-6.9-8z"/></svg>
@@ -418,13 +470,111 @@
         <p class="lead" data-i18n="share_lead">Um cartão com o mapa, o traçado, a dificuldade e os números do dia. Sai bonito sem você fazer nada, e a velocidade só aparece se você quiser.</p>
         <ul class="lista">
           <li data-i18n="share_1">Média, máxima e tempo em movimento, com chave pra esconder.</li>
-          <li data-i18n="share_2">Perfil de piloto: a moto, o capacete, os quilômetros e os selos.</li>
-          <li data-i18n="share_3">Clubes para rodar junto: rota, data, ponto de encontro e conversa própria.</li>
         </ul>
       </div>
-      <div class="vitrine par brilho rev">
+      <div class="vitrine brilho rev">
         <div class="celular"><img src="img/tela-story.webp" alt="Tela de compartilhar com o cartão do rolê para stories: mapa, traçado, 86,2 km e 3h06" data-i18n-alt="a_story" width="720" height="1493" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- COMUNIDADE -->
+  <section id="comunidade" style="border-top:1px solid var(--borda)">
+    <div class="wrap dupla">
+      <div class="texto rev">
+        <span class="rotulo" data-i18n="nav_community">Comunidade</span>
+        <h2 data-i18n="com_h2">Rodar sozinho é bom. <span class="verde">Rodar junto é melhor.</span></h2>
+        <p class="lead" data-i18n="com_lead">O Roadfy também é uma rede de motociclistas. Siga quem pilota perto de você, curta e comente os rolês e encontre a sua turma.</p>
+        <ul class="lista" style="gap:18px">
+          <li><span data-i18n="com_1"><b>Um feed de rolês de verdade.</b> Veja todo mundo ou só quem você segue, com o mapa, as fotos e os números de cada saída.</span></li>
+          <li><span data-i18n="com_2"><b>Curta e comente sem sair do feed.</b> O último comentário já aparece embaixo do rolê.</span></li>
+          <li><span data-i18n="com_3"><b>Você manda em quem te vê.</b> Com o perfil privado, seus rolês ficam escondidos e seguir vira pedido.</span></li>
+          <li><span data-i18n="com_4"><b>Notificações.</b> Saiba quando alguém curtiu, comentou ou começou a te seguir. E dá para denunciar e bloquear.</span></li>
+        </ul>
+      </div>
+      <div class="vitrine brilho rev">
+        <div class="celular"><img src="img/tela-feed.webp" alt="Feed do Roadfy com a foto de uma moto em uma trilha e o resumo do rolê: 86,2 km" data-i18n-alt="a_feed" width="720" height="1493" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O PILOTO -->
+  <section class="notas" style="border-top:1px solid var(--borda)">
+    <div class="wrap dupla inverte">
+      <div class="texto rev">
+        <span class="rotulo" data-i18n="piloto_label">O piloto</span>
+        <h2 data-i18n="piloto_h2">Cada piloto tem <span class="verde">uma ficha.</span></h2>
+        <p class="lead" data-i18n="piloto_lead">A primeira pergunta que um motociclista faz a outro é qual moto. Por isso a moto é o cartaz do perfil, com o tempo de estrada ao lado.</p>
+        <ul class="lista" style="gap:18px">
+          <li><span data-i18n="piloto_1"><b>A moto, o capacete e desde quando você pilota.</b> Preencha o que quiser; o que está vazio simplesmente não aparece.</span></li>
+          <li><span data-i18n="piloto_2"><b>Off road, on road ou os dois.</b> O seu jeito de pilotar, para a turma certa te achar.</span></li>
+          <li><span data-i18n="piloto_3"><b>Seus números, sem enfeite.</b> Rolês, quilômetros, horas de estrada e quanto do Brasil você já atravessou.</span></li>
+          <li><span data-i18n="piloto_4"><b>Por onde você andou.</b> As cidades, os estados e as rodovias por onde o seu GPS já passou.</span></li>
+        </ul>
+      </div>
+      <div class="vitrine brilho rev">
         <div class="celular"><img src="img/tela-piloto.webp" alt="Perfil do piloto com a moto, o capacete e 504,1 km rodados" data-i18n-alt="a_piloto" width="720" height="1493" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONQUISTAS -->
+  <section id="selos">
+    <div class="wrap">
+      <div class="cab rev">
+        <span class="rotulo" data-i18n="selos_label">Conquistas</span>
+        <h2 data-i18n="selos_h2">Cada quilômetro <span class="verde">vira conquista.</span></h2>
+        <p class="lead" data-i18n="selos_lead">Os selos nascem do seu GPS, sem marcar nada à mão. Rodou, ganhou. E o app mostra quanto falta para o próximo.</p>
+      </div>
+      <div class="cinco">
+        <div class="cartao familia rev" style="grid-column: span 2"><div class="degraus" aria-hidden="true"><i class="medalha on">100</i><i class="medalha on">1k</i><i class="medalha ">10k</i><i class="medalha ">40k</i></div><h3 data-i18n="f1_t">Quilometragem</h3><p data-i18n="f1_p">Tudo o que você já rodou com o GPS ligado.</p><small class="unid">km</small><p class="nomes" data-i18n="f1_n">De “Esquentou o motor” a “Volta ao mundo”</p></div>
+        <div class="cartao familia rev" style="grid-column: span 2"><div class="degraus" aria-hidden="true"><i class="medalha on">5</i><i class="medalha on">24</i><i class="medalha ">100</i><i class="medalha ">1k</i></div><h3 data-i18n="f2_t">Tempo na sela</h3><p data-i18n="f2_p">Horas de rolê gravado, paradas incluídas.</p><small class="unid">h</small><p class="nomes" data-i18n="f2_n">De “Primeiras horas” a “Mil horas de vento na cara”</p></div>
+        <div class="cartao familia rev" style="grid-column: span 2"><div class="degraus" aria-hidden="true"><i class="medalha on">1</i><i class="medalha ">5</i><i class="medalha ">25</i><i class="medalha ">50</i></div><h3 data-i18n="f3_t">Rotas abertas</h3><p data-i18n="f3_p">Rotas suas que entraram no catálogo para os outros usarem.</p><small class="unid"><span data-i18n="unit_routes">rotas</span></small><p class="nomes" data-i18n="f3_n">De “Abriu caminho” a “Mapa vivo”</p></div>
+        <div class="cartao familia rev" style="grid-column: span 3"><div class="degraus" aria-hidden="true"><i class="medalha on">1</i><i class="medalha on">5</i><i class="medalha on">25</i><i class="medalha ">50</i></div><h3 data-i18n="f4_t">Rotas encaradas</h3><p data-i18n="f4_p">Rotas do catálogo que você percorreu até o fim.</p><small class="unid"><span data-i18n="unit_routes">rotas</span></small><p class="nomes" data-i18n="f4_n">De “Primeira missão” a “Colecionador de estradas”</p></div>
+        <div class="cartao familia rev" style="grid-column: span 3"><div class="degraus" aria-hidden="true"><i class="medalha on">3</i><i class="medalha on">10</i><i class="medalha ">50</i><i class="medalha ">100</i></div><h3 data-i18n="f5_t">Cidades</h3><p data-i18n="f5_p">Cidades por onde seu GPS já passou.</p><small class="unid"><span data-i18n="unit_cities">cidades</span></small><p class="nomes" data-i18n="f5_n">De “Três placas” a “Pé de vento”</p></div>
+      </div>
+      <p class="nota-selos rev" data-i18n="selos_note">Alguns dos selos de cada família. A conta é feita sobre os seus rolês gravados, e quem já tinha a quilometragem quando um selo novo nasce já o recebe.</p>
+    </div>
+  </section>
+
+  <!-- CLUBES -->
+  <section class="notas" id="clubes" style="border-top:1px solid var(--borda)">
+    <div class="wrap dupla">
+      <div class="vitrine rev">
+        <div class="ilustra" role="img" aria-label="Ilustração de um clube e de um grupo" data-i18n-aria="vis_aria">
+          <div class="clube-card">
+            <div class="brasao" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M12 9v5M9.5 11.5h5"/></svg></div>
+            <div class="clube-info">
+              <span class="barra-fina w60"></span>
+              <span class="barra-fina w40 suave"></span>
+              <div class="chips">
+                <span class="chip v" data-i18n="chip_off">Off road</span>
+                <span class="chip" data-i18n="chip_pub">Público</span>
+              </div>
+            </div>
+          </div>
+          <div class="liga" aria-hidden="true"></div>
+          <div class="grupo-card">
+            <b class="grupo-t" data-i18n="g_title">Grupo</b>
+            <div class="linha-g"><span data-i18n="g_route">Rota</span><span class="barra-fina w50"></span></div>
+            <div class="linha-g"><span data-i18n="g_when">Dia e hora</span><span class="barra-fina w40"></span></div>
+            <div class="linha-g"><span data-i18n="g_meet">Ponto de encontro</span><span class="barra-fina w60"></span></div>
+            <div class="chat-g"><span class="chip v" data-i18n="g_chat">Chat do grupo</span><span class="chip" data-i18n="chip_priv">Privado</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="texto rev">
+        <span class="rotulo" data-i18n="clubes_label">Clubes</span>
+        <h2 data-i18n="clubes_h2">O clube é a casa. <span class="verde">O grupo é o encontro.</span></h2>
+        <p class="lead" data-i18n="clubes_lead">Monte o seu clube de motociclistas, ache a turma da sua cidade e combine o próximo rolê com todo mundo no mesmo lugar.</p>
+        <ul class="lista" style="gap:16px">
+          <li><span data-i18n="clubes_1"><b>Seu clube, do seu jeito.</b> Nome, brasão, cidade e estilo de pilotagem. Público para qualquer um entrar, ou privado, só por convite.</span></li>
+          <li><span data-i18n="clubes_2"><b>Ache a turma de perto.</b> Descubra clubes da sua região e responda aos convites que chegarem.</span></li>
+          <li><span data-i18n="clubes_3"><b>Combine um grupo.</b> Uma rota, um dia e um ponto de encontro, com convite por link.</span></li>
+          <li><span data-i18n="clubes_4"><b>Conversa e posição no dia.</b> Cada grupo tem chat próprio e mostra onde cada um está no dia do encontro.</span></li>
+          <li><span data-i18n="clubes_5"><b>Você escolhe o que aparece.</b> Mostre no seu perfil só os clubes que quiser.</span></li>
+        </ul>
       </div>
     </div>
   </section>
