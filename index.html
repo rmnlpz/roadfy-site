@@ -128,10 +128,10 @@
   .heroi .lead { margin-bottom: 34px; }
   .acoes { display: flex; flex-wrap: wrap; gap: 14px; }
   .nota-mini { margin-top: 22px; font-size: .88rem; color: var(--suave); }
-  .palco { position: relative; height: min(640px, 92vw); }
-  .palco .celular { position: absolute; width: 46%; max-width: 290px; }
+  .palco { position: relative; height: min(760px, 110vw); }
+  .palco .celular { position: absolute; width: 48%; max-width: 330px; }
   .palco .c1 { left: 6%; top: 40px; transform: rotate(-6deg); animation: flutuar 7s ease-in-out infinite; }
-  .palco .c2 { right: 2%; top: -10px; transform: rotate(5deg); width: 50%; max-width: 320px; animation: flutuar 8s ease-in-out -2s infinite; z-index: 2; }
+  .palco .c2 { right: 0; top: -10px; transform: rotate(5deg); width: 54%; max-width: 370px; animation: flutuar 8s ease-in-out -2s infinite; z-index: 2; }
   @keyframes flutuar { 50% { translate: 0 -14px; } }
 
   /* ---------- faixa de números ---------- */
@@ -156,10 +156,10 @@
     border: 1px solid rgba(86,255,149,.35);
   }
   .vitrine { display: flex; justify-content: center; align-items: flex-start; position: relative; }
-  .vitrine .celular { max-width: 320px; }
+  .vitrine .celular { max-width: 380px; }
   .vitrine.par { gap: 22px; }
-  .vitrine.par .celular { max-width: 260px; }
-  .vitrine.par .celular:last-child { margin-top: 70px; }
+  .vitrine.par .celular { max-width: 310px; }
+  .vitrine.par .celular:last-child { margin-top: 80px; }
   .brilho::before {
     content: ""; position: absolute; inset: 10% 0; background: radial-gradient(closest-side, rgba(86,255,149,.16), transparent 75%); z-index: -1;
   }
@@ -205,7 +205,7 @@
     display: flex; gap: 22px; overflow-x: auto; padding: 30px max(20px, calc((100vw - var(--largura)) / 2 + 20px)) 40px;
     scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: var(--caixa-2) transparent;
   }
-  .trilho .celular { flex: none; width: 250px; scroll-snap-align: center; }
+  .trilho .celular { flex: none; width: 290px; scroll-snap-align: center; }
 
   /* ---------- final ---------- */
   .final { text-align: center; position: relative; overflow: hidden; }
@@ -314,7 +314,7 @@
     .foto-heroica { border-radius: 22px; }
   }
 
-  .trio { position: relative; display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 28px; align-items: center; max-width: 880px; margin: 100px auto 0; }
+  .trio { position: relative; display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 28px; align-items: center; max-width: 1000px; margin: 100px auto 0; }
   .trio::before { content: ""; position: absolute; inset: -8% -6%; background: radial-gradient(closest-side, rgba(86,255,149,.20), transparent 75%); z-index: -1; }
   .trio .celular { max-width: none; }
   .trio .lado:first-child { transform: rotate(-4deg) translateY(18px); }
@@ -397,8 +397,8 @@
         <p class="nota-mini" data-i18n="soon">Em breve no Google Play · Android</p>
       </div>
       <div class="palco" aria-hidden="false">
-        <div class="celular c1"><img src="img/tela-mapa.webp" alt="Mapa de rotas do Roadfy em satélite, com o traçado de uma rota em verde" data-i18n-alt="a_mapa" width="720" height="1491" fetchpriority="high"></div>
-        <div class="celular c2"><img src="img/tela-feed.webp" alt="Feed do Roadfy com a foto de uma moto em uma trilha e o resumo do rolê: 86,2 km" data-i18n-alt="a_feed" width="720" height="1493" fetchpriority="high"></div>
+        <div class="celular c1"><img src="img/tela-mapa.webp" alt="Mapa de rotas do Roadfy em satélite, com o traçado de uma rota em verde" data-i18n-alt="a_mapa" width="738" height="1528" fetchpriority="high"></div>
+        <div class="celular c2"><img src="img/tela-feed.webp" alt="Feed do Roadfy com a foto de uma moto em uma trilha e o resumo do rolê: 86,2 km" data-i18n-alt="a_feed" width="1080" height="2240" fetchpriority="high"></div>
       </div>
     </div>
   </div>
@@ -426,7 +426,7 @@
         </ul>
       </div>
       <div class="vitrine brilho rev">
-        <div class="celular"><img src="img/tela-gravar.webp" alt="Tela de gravação com cronômetro, distância, subida e os botões Pausar e Finalizar" data-i18n-alt="a_gravar" width="720" height="1493" loading="lazy"></div>
+        <div class="celular"><img src="img/tela-gravar.webp" alt="Tela de gravação com cronômetro, distância, subida e os botões Pausar e Finalizar" data-i18n-alt="a_gravar" width="1080" height="2240" loading="lazy"></div>
       </div>
     </div>
   </section>
@@ -445,8 +445,8 @@
         </ul>
       </div>
       <div class="vitrine par brilho rev">
-        <div class="celular"><img src="img/tela-role.webp" alt="Tela do rolê com o traçado verde no mapa de satélite, fotos e estatísticas" data-i18n-alt="a_role" width="720" height="1493" loading="lazy"></div>
-        <div class="celular"><img src="img/tela-por-onde-passou.webp" alt="Tela Por onde passou: gráfico de altitude, 4 cidades, 1 estado e 2 rodovias" data-i18n-alt="a_onde" width="720" height="1493" loading="lazy"></div>
+        <div class="celular"><img src="img/tela-role.webp" alt="Tela do rolê com o traçado verde no mapa de satélite, fotos e estatísticas" data-i18n-alt="a_role" width="1080" height="2240" loading="lazy"></div>
+        <div class="celular"><img src="img/tela-por-onde-passou.webp" alt="Tela Por onde passou: gráfico de altitude, 4 cidades, 1 estado e 2 rodovias" data-i18n-alt="a_onde" width="1080" height="2240" loading="lazy"></div>
       </div>
     </div>
   </section>
@@ -469,9 +469,9 @@
             <li><span data-i18n="routes_4"><b>Planeje sem sair do lugar.</b> Marque as paradas, e o caminho entre elas é gravado quando você pilotar.</span></li>
       </ul>
       <div class="trio rev">
-        <div class="celular lado"><img src="img/tela-rotas.webp" alt="Catálogo de rotas com busca, filtros e o cartão da rota Poção, Santa Maria, Jacu" data-i18n-alt="a_rotas" width="720" height="1493" loading="lazy"></div>
-        <div class="celular centro"><img src="img/tela-mapa.webp" alt="Mapa de rotas do Roadfy em satélite, com o traçado de uma rota em verde" data-i18n-alt="a_mapa" width="720" height="1491" loading="lazy"></div>
-        <div class="celular lado"><img src="img/tela-planejar.webp" alt="Tela Planejar rota com nome, descrição, cidade e paradas" data-i18n-alt="a_planejar" width="720" height="1493" loading="lazy"></div>
+        <div class="celular lado"><img src="img/tela-rotas.webp" alt="Catálogo de rotas com busca, filtros e o cartão da rota Poção, Santa Maria, Jacu" data-i18n-alt="a_rotas" width="1080" height="2240" loading="lazy"></div>
+        <div class="celular centro"><img src="img/tela-mapa.webp" alt="Mapa de rotas do Roadfy em satélite, com o traçado de uma rota em verde" data-i18n-alt="a_mapa" width="738" height="1528" loading="lazy"></div>
+        <div class="celular lado"><img src="img/tela-planejar.webp" alt="Tela Planejar rota com nome, descrição, cidade e paradas" data-i18n-alt="a_planejar" width="1080" height="2240" loading="lazy"></div>
       </div>
     </div>
   </section>
@@ -516,7 +516,7 @@
         </ul>
       </div>
       <div class="vitrine brilho rev">
-        <div class="celular"><img src="img/tela-story.webp" alt="Tela de compartilhar com o cartão do rolê para stories: mapa, traçado, 86,2 km e 3h06" data-i18n-alt="a_story" width="720" height="1493" loading="lazy"></div>
+        <div class="celular"><img src="img/tela-story.webp" alt="Tela de compartilhar com o cartão do rolê para stories: mapa, traçado, 86,2 km e 3h06" data-i18n-alt="a_story" width="1080" height="2240" loading="lazy"></div>
       </div>
     </div>
   </section>
@@ -537,7 +537,7 @@
         </ul>
       </div>
       <div class="vitrine brilho rev">
-        <div class="celular"><img src="img/tela-feed.webp" alt="Feed do Roadfy com a foto de uma moto em uma trilha e o resumo do rolê: 86,2 km" data-i18n-alt="a_feed" width="720" height="1493" loading="lazy"></div>
+        <div class="celular"><img src="img/tela-feed.webp" alt="Feed do Roadfy com a foto de uma moto em uma trilha e o resumo do rolê: 86,2 km" data-i18n-alt="a_feed" width="1080" height="2240" loading="lazy"></div>
       </div>
     </div>
   </section>
@@ -557,7 +557,7 @@
         </ul>
       </div>
       <div class="vitrine brilho rev">
-        <div class="celular"><img src="img/tela-piloto.webp" alt="Perfil do piloto com a moto, o capacete e 504,1 km rodados" data-i18n-alt="a_piloto" width="720" height="1493" loading="lazy"></div>
+        <div class="celular"><img src="img/tela-piloto.webp" alt="Perfil do piloto com a moto, o capacete e 504,1 km rodados" data-i18n-alt="a_piloto" width="1080" height="2240" loading="lazy"></div>
       </div>
     </div>
   </section>
@@ -705,15 +705,15 @@
       <h2 data-i18n="gal_h2">Tudo no <span class="verde">mesmo app.</span></h2>
     </div>
     <div class="trilho" tabindex="0" aria-label="Capturas de tela do aplicativo" data-i18n-aria="gal_aria">
-      <div class="celular"><img src="img/tela-feed.webp" alt="Feed" data-i18n-alt="g_feed" width="720" height="1493" loading="lazy"></div>
-      <div class="celular"><img src="img/tela-mapa.webp" alt="Mapa de rotas" data-i18n-alt="g_mapa" width="720" height="1491" loading="lazy"></div>
-      <div class="celular"><img src="img/tela-role.webp" alt="Rolê" data-i18n-alt="g_role" width="720" height="1493" loading="lazy"></div>
-      <div class="celular"><img src="img/tela-por-onde-passou.webp" alt="Por onde passou" data-i18n-alt="g_onde" width="720" height="1493" loading="lazy"></div>
-      <div class="celular"><img src="img/tela-rotas.webp" alt="Catálogo de rotas" data-i18n-alt="g_rotas" width="720" height="1493" loading="lazy"></div>
-      <div class="celular"><img src="img/tela-gravar.webp" alt="Gravação" data-i18n-alt="g_gravar" width="720" height="1493" loading="lazy"></div>
-      <div class="celular"><img src="img/tela-planejar.webp" alt="Planejar rota" data-i18n-alt="g_plan" width="720" height="1493" loading="lazy"></div>
-      <div class="celular"><img src="img/tela-story.webp" alt="Compartilhar" data-i18n-alt="g_share" width="720" height="1493" loading="lazy"></div>
-      <div class="celular"><img src="img/tela-piloto.webp" alt="Perfil do piloto" data-i18n-alt="g_piloto" width="720" height="1493" loading="lazy"></div>
+      <div class="celular"><img src="img/tela-feed.webp" alt="Feed" data-i18n-alt="g_feed" width="1080" height="2240" loading="lazy"></div>
+      <div class="celular"><img src="img/tela-mapa.webp" alt="Mapa de rotas" data-i18n-alt="g_mapa" width="738" height="1528" loading="lazy"></div>
+      <div class="celular"><img src="img/tela-role.webp" alt="Rolê" data-i18n-alt="g_role" width="1080" height="2240" loading="lazy"></div>
+      <div class="celular"><img src="img/tela-por-onde-passou.webp" alt="Por onde passou" data-i18n-alt="g_onde" width="1080" height="2240" loading="lazy"></div>
+      <div class="celular"><img src="img/tela-rotas.webp" alt="Catálogo de rotas" data-i18n-alt="g_rotas" width="1080" height="2240" loading="lazy"></div>
+      <div class="celular"><img src="img/tela-gravar.webp" alt="Gravação" data-i18n-alt="g_gravar" width="1080" height="2240" loading="lazy"></div>
+      <div class="celular"><img src="img/tela-planejar.webp" alt="Planejar rota" data-i18n-alt="g_plan" width="1080" height="2240" loading="lazy"></div>
+      <div class="celular"><img src="img/tela-story.webp" alt="Compartilhar" data-i18n-alt="g_share" width="1080" height="2240" loading="lazy"></div>
+      <div class="celular"><img src="img/tela-piloto.webp" alt="Perfil do piloto" data-i18n-alt="g_piloto" width="1080" height="2240" loading="lazy"></div>
     </div>
   </section>
 
