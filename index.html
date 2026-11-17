@@ -3,78 +3,496 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Roadfy</title>
-<meta name="description" content="Páginas públicas do aplicativo Roadfy: política de privacidade e exclusão de conta.">
+<title>Roadfy — trilha de moto: grave, avalie e descubra rotas</title>
+<meta name="description" content="Grave o rolê por GPS, avalie o caminho em três notas e descubra rotas de outros motociclistas. O Roadfy é o app de trilha feito por quem pilota.">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="canonical" href="https://roadforyou.com/">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Roadfy — o app de trilha para motociclistas">
+<meta property="og:description" content="Grave o rolê por GPS, avalie o caminho e descubra rotas de outros pilotos.">
+<meta property="og:url" content="https://roadforyou.com/">
+<meta property="og:image" content="https://roadforyou.com/img/og.jpg">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
 <style>
   :root {
-    --fundo: #FAFAF9;
-    --texto: #1C1917;
-    --suave: #57534E;
-    --caixa: #FFFFFF;
-    --borda: #E7E5E4;
-    --marca: #0A7C42;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --fundo: #0C0A09;
-      --texto: #FAFAF9;
-      --suave: #A8A29E;
-      --caixa: #1C1917;
-      --borda: #292524;
-      --marca: #56FF95;
-    }
-  }
-  :root[data-theme="dark"] {
-    --fundo: #0C0A09;
+    --fundo: #0A0A0A;
+    --fundo-2: #121110;
+    --caixa: #1C1917;
+    --caixa-2: #292524;
+    --borda: #2E2A28;
     --texto: #FAFAF9;
     --suave: #A8A29E;
-    --caixa: #1C1917;
-    --borda: #292524;
     --marca: #56FF95;
+    --marca-escura: #0F2A1B;
+    --raio: 20px;
+    --largura: 1160px;
   }
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
     margin: 0;
-    padding: 48px 16px;
     background: var(--fundo);
     color: var(--texto);
-    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
-  main { max-width: 34rem; margin: 0 auto; }
-  h1 { font-size: 1.75rem; margin: 0 0 .25rem; letter-spacing: -.02em; }
-  p.sub { color: var(--suave); margin: 0 0 2rem; }
-  a.cartao {
-    display: block;
-    padding: 1rem 1.25rem;
-    margin-bottom: .75rem;
-    background: var(--caixa);
-    border: 1px solid var(--borda);
-    border-radius: 12px;
-    color: var(--texto);
-    text-decoration: none;
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+  .wrap { max-width: var(--largura); margin: 0 auto; padding: 0 20px; }
+  h1, h2, h3 { line-height: 1.05; letter-spacing: -.035em; margin: 0; font-weight: 800; }
+  h2 { font-size: clamp(2rem, 5vw, 3.4rem); }
+  h3 { font-size: 1.25rem; letter-spacing: -.02em; line-height: 1.2; }
+  p { margin: 0; }
+  .verde { color: var(--marca); }
+  .rotulo {
+    display: inline-block; font-size: .78rem; font-weight: 700; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--marca); margin-bottom: 14px;
   }
-  a.cartao:hover { border-color: var(--marca); }
-  a.cartao strong { display: block; color: var(--marca); margin-bottom: .15rem; }
-  a.cartao span { color: var(--suave); font-size: .925rem; }
-  footer { margin-top: 2.5rem; color: var(--suave); font-size: .875rem; }
+  .lead { color: var(--suave); font-size: 1.15rem; max-width: 34rem; }
+
+  /* ---------- barra ---------- */
+  .barra {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    background: rgba(10,10,10,.72); border-bottom: 1px solid rgba(255,255,255,.06);
+  }
+  .barra .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 800; font-size: 1.3rem; letter-spacing: -.03em; color: var(--marca); }
+  .logo img { width: 32px; height: 32px; border-radius: 9px; }
+  .barra nav { display: flex; align-items: center; gap: 26px; }
+  .barra nav a { text-decoration: none; color: var(--suave); font-size: .95rem; font-weight: 500; transition: color .15s; }
+  .barra nav a:hover { color: var(--texto); }
+  .barra nav a.btn-mini {
+    color: #04130A; background: var(--marca); padding: 8px 16px; border-radius: 999px; font-weight: 700;
+  }
+  .barra nav a.btn-mini:hover { color: #04130A; filter: brightness(1.08); }
+
+  /* ---------- botões ---------- */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700;
+    padding: 15px 26px; border-radius: 999px; font-size: 1.02rem; transition: transform .15s, filter .15s, border-color .15s;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-cheio { background: var(--marca); color: #04130A; box-shadow: 0 10px 40px -8px rgba(86,255,149,.55); }
+  .btn-cheio:hover { filter: brightness(1.07); }
+  .btn-vazio { border: 1.5px solid var(--borda); color: var(--texto); }
+  .btn-vazio:hover { border-color: var(--marca); }
+  .btn svg { width: 20px; height: 20px; flex: none; }
+
+  /* ---------- moldura de celular ---------- */
+  .celular {
+    position: relative; width: 100%; aspect-ratio: 720 / 1493;
+    border-radius: 34px; padding: 7px; background: #1a1817;
+    box-shadow: 0 0 0 1.5px #3a3532, 0 40px 80px -20px rgba(0,0,0,.8), 0 0 120px -30px rgba(86,255,149,.25);
+  }
+  .celular img { width: 100%; height: 100%; object-fit: cover; border-radius: 28px; background: #0A0A0A; }
+  .celular::before {
+    content: ""; position: absolute; top: 14px; left: 50%; width: 22px; height: 22px; margin-left: -11px;
+    border-radius: 50%; background: #050505; box-shadow: 0 0 0 3px rgba(255,255,255,.04); z-index: 2;
+  }
+
+  /* ---------- herói ---------- */
+  .heroi { position: relative; padding: 70px 0 110px; overflow: hidden; }
+  .heroi::before {
+    content: ""; position: absolute; inset: -20% -10% auto auto; width: 70vw; height: 70vw; max-width: 900px; max-height: 900px;
+    background: radial-gradient(closest-side, rgba(86,255,149,.20), transparent 70%); pointer-events: none;
+  }
+  .trilha-fundo { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: .5; }
+  .trilha-fundo path {
+    fill: none; stroke: var(--marca); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 8 14; opacity: .35;
+    animation: correr 40s linear infinite;
+  }
+  @keyframes correr { to { stroke-dashoffset: -1200; } }
+  .heroi .wrap { position: relative; display: grid; grid-template-columns: 1.05fr .95fr; gap: 40px; align-items: center; }
+  .selo {
+    display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 999px;
+    background: var(--marca-escura); border: 1px solid rgba(86,255,149,.3); color: var(--marca); font-size: .85rem; font-weight: 600; margin-bottom: 24px;
+  }
+  .selo i { width: 7px; height: 7px; border-radius: 50%; background: var(--marca); box-shadow: 0 0 0 0 rgba(86,255,149,.7); animation: pulso 2s infinite; }
+  @keyframes pulso { 70% { box-shadow: 0 0 0 9px rgba(86,255,149,0); } 100% { box-shadow: 0 0 0 0 rgba(86,255,149,0); } }
+  .heroi h1 { font-size: clamp(2.8rem, 7.4vw, 5.6rem); margin-bottom: 24px; }
+  .heroi .lead { margin-bottom: 34px; }
+  .acoes { display: flex; flex-wrap: wrap; gap: 14px; }
+  .nota-mini { margin-top: 22px; font-size: .88rem; color: var(--suave); }
+  .palco { position: relative; height: min(640px, 92vw); }
+  .palco .celular { position: absolute; width: 46%; max-width: 290px; }
+  .palco .c1 { left: 6%; top: 40px; transform: rotate(-6deg); animation: flutuar 7s ease-in-out infinite; }
+  .palco .c2 { right: 2%; top: -10px; transform: rotate(5deg); width: 50%; max-width: 320px; animation: flutuar 8s ease-in-out -2s infinite; z-index: 2; }
+  @keyframes flutuar { 50% { translate: 0 -14px; } }
+
+  /* ---------- faixa de números ---------- */
+  .faixa { border-block: 1px solid var(--borda); background: var(--fundo-2); }
+  .faixa .wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .faixa div { padding: 30px 18px; text-align: center; border-left: 1px solid var(--borda); }
+  .faixa div:first-child { border-left: 0; }
+  .faixa b { display: block; font-size: 2.1rem; letter-spacing: -.04em; color: var(--marca); line-height: 1.1; }
+  .faixa span { color: var(--suave); font-size: .92rem; }
+
+  /* ---------- seções ---------- */
+  section { padding: 110px 0; }
+  .dupla { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+  .dupla.inverte .texto { order: 2; }
+  .texto h2 { margin-bottom: 20px; }
+  .texto .lead { margin-bottom: 26px; }
+  .lista { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+  .lista li { display: flex; gap: 12px; color: #D6D3D1; font-size: 1rem; line-height: 1.5; }
+  .lista li::before {
+    content: ""; flex: none; width: 20px; height: 20px; margin-top: 2px; border-radius: 50%;
+    background: var(--marca-escura) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='%2356FF95' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/cover;
+    border: 1px solid rgba(86,255,149,.35);
+  }
+  .vitrine { display: flex; justify-content: center; position: relative; }
+  .vitrine .celular { max-width: 320px; }
+  .vitrine.par { gap: 22px; }
+  .vitrine.par .celular { max-width: 260px; }
+  .vitrine.par .celular:last-child { margin-top: 70px; }
+  .brilho::before {
+    content: ""; position: absolute; inset: 10% 0; background: radial-gradient(closest-side, rgba(86,255,149,.16), transparent 75%); z-index: -1;
+  }
+
+  /* ---------- três notas ---------- */
+  .notas { background: var(--fundo-2); border-block: 1px solid var(--borda); }
+  .cab { max-width: 44rem; margin: 0 auto 56px; text-align: center; }
+  .cab .lead { margin: 18px auto 0; }
+  .tres { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .cartao {
+    background: var(--caixa); border: 1px solid var(--borda); border-radius: var(--raio); padding: 28px;
+    transition: border-color .2s, transform .2s;
+  }
+  .cartao:hover { border-color: rgba(86,255,149,.5); transform: translateY(-4px); }
+  .cartao h3 { margin: 18px 0 8px; }
+  .cartao p { color: var(--suave); font-size: .98rem; }
+  .medidor { display: flex; gap: 6px; }
+  .medidor i { flex: 1; height: 38px; border-radius: 9px; opacity: .22; }
+  .medidor i.on { opacity: 1; }
+  .m1 i:nth-child(1){background:#22C55E}.m1 i:nth-child(2){background:#84CC16}.m1 i:nth-child(3){background:#EAB308}.m1 i:nth-child(4){background:#F97316}.m1 i:nth-child(5){background:#EF4444}
+  .medidor.verde-todo i { background: var(--marca); }
+
+  /* ---------- por onde passou / mapa ---------- */
+  .foto-larga { position: relative; border-radius: 28px; overflow: hidden; border: 1px solid var(--borda); }
+  .foto-larga img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ---------- privacidade ---------- */
+  .privado {
+    position: relative; overflow: hidden; border-radius: 32px; border: 1px solid rgba(86,255,149,.28);
+    background: linear-gradient(135deg, #0E2418 0%, #0A0A0A 70%); padding: 64px;
+    display: grid; grid-template-columns: 1.1fr .9fr; gap: 50px; align-items: center;
+  }
+  .privado h2 { margin-bottom: 18px; }
+  .privado .lead { color: #C9D6CD; }
+  .raio-svg { width: 100%; max-width: 360px; margin: 0 auto; }
+  .raio-svg text { font: 700 14px -apple-system, "Segoe UI", sans-serif; fill: var(--texto); }
+  .pulsa { animation: pulsa 3s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+  @keyframes pulsa { 50% { transform: scale(1.06); opacity: .75; } }
+
+  /* ---------- galeria ---------- */
+  .galeria { padding-bottom: 60px; }
+  .trilho {
+    display: flex; gap: 22px; overflow-x: auto; padding: 30px max(20px, calc((100vw - var(--largura)) / 2 + 20px)) 40px;
+    scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: var(--caixa-2) transparent;
+  }
+  .trilho .celular { flex: none; width: 250px; scroll-snap-align: center; }
+
+  /* ---------- final ---------- */
+  .final { text-align: center; position: relative; overflow: hidden; }
+  .final::before {
+    content: ""; position: absolute; left: 50%; top: 50%; width: 800px; height: 500px; translate: -50% -50%;
+    background: radial-gradient(closest-side, rgba(86,255,149,.18), transparent 75%); pointer-events: none;
+  }
+  .final .wrap { position: relative; }
+  .final img.ic { width: 92px; height: 92px; border-radius: 24px; margin: 0 auto 28px; box-shadow: 0 20px 60px -10px rgba(86,255,149,.4); }
+  .final h2 { font-size: clamp(2.2rem, 6vw, 4.2rem); margin-bottom: 20px; }
+  .final .lead { margin: 0 auto 34px; }
+  .final .acoes { justify-content: center; }
+
+  footer { border-top: 1px solid var(--borda); padding: 40px 0 50px; color: var(--suave); font-size: .92rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 20px 40px; justify-content: space-between; align-items: center; }
+  footer nav { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+  footer a { text-decoration: none; }
+  footer a:hover { color: var(--marca); }
+
+  /* ---------- aparecer ao rolar ---------- */
+  .js .rev { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+  .js .rev.vis { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .js .rev { opacity: 1; transform: none; transition: none; }
+    .trilha-fundo path, .palco .celular, .pulsa, .selo i { animation: none; }
+  }
+
+  /* ---------- telas pequenas ---------- */
+  @media (max-width: 900px) {
+    section { padding: 76px 0; }
+    .heroi { padding: 40px 0 70px; }
+    .heroi .wrap, .dupla, .privado { grid-template-columns: 1fr; }
+    .dupla { gap: 48px; }
+    .dupla.inverte .texto { order: 0; }
+    .tres { grid-template-columns: 1fr; }
+    .faixa .wrap { grid-template-columns: repeat(2, 1fr); }
+    .faixa div:nth-child(3) { border-left: 0; }
+    .faixa div:nth-child(n+3) { border-top: 1px solid var(--borda); }
+    .privado { padding: 36px 24px; }
+    .barra nav a:not(.btn-mini) { display: none; }
+    .palco { height: min(560px, 120vw); margin-top: 10px; }
+    .palco .c1 { left: 2%; width: 46%; }
+    .palco .c2 { right: 2%; width: 50%; }
+  }
 </style>
 </head>
 <body>
-<main>
-  <h1>Roadfy</h1>
-  <p class="sub">Aplicativo de trilha para motociclistas. Esta página reúne o que a loja exige que fique aberto.</p>
+<script>document.documentElement.classList.add('js')</script>
 
-  <a class="cartao" href="privacidade.html">
-    <strong>Política de Privacidade</strong>
-    <span>O que o app coleta, por quê, com quem compartilha e como apagar tudo.</span>
-  </a>
+<header class="barra">
+  <div class="wrap">
+    <a class="logo" href="#topo"><img src="img/icone.webp" alt="" width="32" height="32">Roadfy</a>
+    <nav>
+      <a href="#recursos">Recursos</a>
+      <a href="#notas">Três notas</a>
+      <a href="#privacidade">Privacidade</a>
+      <a class="btn-mini" href="#baixar">Quero o app</a>
+    </nav>
+  </div>
+</header>
 
-  <a class="cartao" href="excluir-conta.html">
-    <strong>Excluir sua conta</strong>
-    <span>Como apagar sua conta e tudo que ela guarda, pelo app ou por e-mail.</span>
-  </a>
+<main id="topo">
 
-  <footer>Contato: <a href="mailto:davdevlab@gmail.com">davdevlab@gmail.com</a></footer>
+  <!-- HERÓI -->
+  <div class="heroi">
+    <svg class="trilha-fundo" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path d="M-40 700 C 200 640, 260 420, 480 460 S 760 640, 900 420 S 1180 120, 1480 200"/>
+      <path d="M-40 560 C 140 520, 300 300, 520 330 S 820 520, 980 300 S 1240 40, 1480 90" style="animation-duration:55s"/>
+    </svg>
+    <div class="wrap">
+      <div>
+        <span class="selo"><i></i> Feito por quem pilota</span>
+        <h1>Cada rolê vira <span class="verde">um mapa</span> pra contar.</h1>
+        <p class="lead">Grave a trilha por GPS, diga como o caminho é de verdade e descubra rotas de outros motociclistas antes de sair de casa.</p>
+        <div class="acoes" id="baixar">
+          <a class="btn btn-cheio" href="mailto:davdevlab@gmail.com?subject=Quero%20testar%20o%20Roadfy">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3.2c-.2.2-.3.5-.3.9v15.8c0 .4.1.7.3.9L13 12 4 3.2zm10.1 9.8l2.6 2.6-9.5 5.4 6.9-8zm4.3-1.6c.6.4.6 1.2 0 1.6l-1.6.9-2.9-2.8 2.9-2.8 1.6 1.1zM7.2 2.9l9.5 5.4-2.6 2.6-6.9-8z"/></svg>
+            Quero testar no Android
+          </a>
+          <a class="btn btn-vazio" href="#recursos">Ver como funciona</a>
+        </div>
+        <p class="nota-mini">Em breve no Google Play · Android</p>
+      </div>
+      <div class="palco" aria-hidden="false">
+        <div class="celular c1"><img src="img/tela-mapa.webp" alt="Mapa de rotas do Roadfy em satélite, com o traçado de uma rota em verde" width="720" height="1491" fetchpriority="high"></div>
+        <div class="celular c2"><img src="img/tela-feed.webp" alt="Feed do Roadfy com a foto de uma moto em uma trilha e o resumo do rolê: 86,2 km" width="720" height="1493" fetchpriority="high"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="faixa">
+    <div class="wrap">
+      <div><b>GPS</b><span>grava mesmo sem sinal</span></div>
+      <div><b>3 notas</b><span>dificuldade, piso e beleza</span></div>
+      <div><b>300 m</b><span>da sua casa ficam de fora</span></div>
+      <div><b>0 anúncios</b><span>nem rastreio de publicidade</span></div>
+    </div>
+  </div>
+
+  <!-- GRAVAR -->
+  <section id="recursos">
+    <div class="wrap dupla">
+      <div class="texto rev">
+        <span class="rotulo">Gravar</span>
+        <h2>Liga, pilota, <span class="verde">esquece o celular.</span></h2>
+        <p class="lead">Trilha é lugar sem cobertura, e o sistema fecha aplicativos quando quer. No Roadfy, cada ponto do GPS é salvo no aparelho no instante em que chega.</p>
+        <ul class="lista">
+          <li>Sobrevive à tela apagada, à bateria fraca e ao app ser encerrado.</li>
+          <li>Sem rede? O envio acontece sozinho depois, quando houver sinal.</li>
+          <li>Publique no sofá, dias depois. O rolê continua seu.</li>
+        </ul>
+      </div>
+      <div class="vitrine brilho rev">
+        <div class="celular"><img src="img/tela-gravar.webp" alt="Tela de gravação com cronômetro, distância, subida e os botões Pausar e Finalizar" width="720" height="1493" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESUMO DO ROLÊ -->
+  <section style="padding-top:0">
+    <div class="wrap dupla inverte">
+      <div class="texto rev">
+        <span class="rotulo">O rolê</span>
+        <h2>Veja <span class="verde">por onde você passou.</span></h2>
+        <p class="lead">Terminou? O Roadfy lê o seu GPS e conta o caminho: cidades na ordem, estado, rodovias e o perfil de altitude da subida.</p>
+        <ul class="lista">
+          <li>Traçado sobre o mapa de satélite, com fotos do caminho.</li>
+          <li>Distância, tempo, subida e velocidade, tudo no resumo.</li>
+          <li>Rodovias estaduais identificadas automaticamente.</li>
+        </ul>
+      </div>
+      <div class="vitrine par brilho rev">
+        <div class="celular"><img src="img/tela-role.webp" alt="Tela do rolê com o traçado verde no mapa de satélite, fotos e estatísticas" width="720" height="1493" loading="lazy"></div>
+        <div class="celular"><img src="img/tela-por-onde-passou.webp" alt="Tela Por onde passou: gráfico de altitude, 4 cidades, 1 estado e 2 rodovias" width="720" height="1493" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESCOBRIR -->
+  <section class="notas" style="border-top:1px solid var(--borda)">
+    <div class="wrap">
+      <div class="cab rev">
+        <span class="rotulo">Rotas</span>
+        <h2>Descubra o caminho <span class="verde">antes de sair de casa.</span></h2>
+        <p class="lead">Busque por CEP, cidade, estado ou nome. Veja o traçado no mapa, as paradas, o que a moto precisa ter e a nota de quem já percorreu.</p>
+      </div>
+      <div class="dupla" style="gap:50px">
+        <div class="foto-larga rev" style="aspect-ratio: 16/9">
+          <img src="img/foto-estrada.webp" alt="Estrada de terra ao pôr do sol vista do guidão de uma moto" width="993" height="452" loading="lazy">
+        </div>
+        <div class="rev">
+          <ul class="lista" style="gap:20px">
+            <li><span><b>Mapa de rotas.</b> Cada marcador é uma rota. Toque nele e o traçado aparece na hora.</span></li>
+            <li><span><b>Mais percorridas, melhor avaliadas, recentes.</b> Ordene do jeito que fizer sentido pro seu fim de semana.</span></li>
+            <li><span><b>Uma rota não é de ninguém.</b> Ela sobrevive a quem a cadastrou, e a galeria dela são as fotos de quem foi.</span></li>
+            <li><span><b>Planeje sem sair do lugar.</b> Marque as paradas, e o caminho entre elas é gravado quando você pilotar.</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="vitrine par brilho rev" style="margin-top:90px; gap:28px">
+        <div class="celular"><img src="img/tela-rotas.webp" alt="Catálogo de rotas com busca, filtros e o cartão da rota Poção, Santa Maria, Jacu" width="720" height="1493" loading="lazy"></div>
+        <div class="celular"><img src="img/tela-planejar.webp" alt="Tela Planejar rota com nome, descrição, cidade e paradas" width="720" height="1493" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRÊS NOTAS -->
+  <section id="notas">
+    <div class="wrap">
+      <div class="cab rev">
+        <span class="rotulo">Avaliação de verdade</span>
+        <h2>Três notas, <span class="verde">não uma.</span></h2>
+        <p class="lead">Uma trilha pode ser difícil, de piso ruim e linda ao mesmo tempo. Uma estrela só esconde exatamente o que faz alguém decidir se vai ou não.</p>
+      </div>
+      <div class="tres">
+        <div class="cartao rev">
+          <div class="medidor m1" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></div>
+          <h3>Dificuldade</h3>
+          <p>De 1 a 5, do passeio de domingo ao hardcore. Dá pra filtrar até onde você topa ir.</p>
+        </div>
+        <div class="cartao rev">
+          <div class="medidor" aria-hidden="true" style="--c:#E7B14A"><i class="on" style="background:#E7B14A"></i><i class="on" style="background:#E7B14A"></i><i class="on" style="background:#E7B14A"></i><i class="on" style="background:#E7B14A"></i><i style="background:#E7B14A"></i></div>
+          <h3>Qualidade do piso</h3>
+          <p>Terra, areia, pedra, lama, grama ou asfalto. Saiba o que vai debaixo do pneu antes de chegar lá.</p>
+        </div>
+        <div class="cartao rev">
+          <div class="medidor verde-todo" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          <h3>Beleza</h3>
+          <p>A nota de natureza. Porque às vezes o caminho vale mais que o destino.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARTILHAR + PERFIL -->
+  <section class="notas" style="border-top:1px solid var(--borda)">
+    <div class="wrap dupla">
+      <div class="texto rev">
+        <span class="rotulo">Compartilhar</span>
+        <h2>Seu rolê <span class="verde">pronto pro story.</span></h2>
+        <p class="lead">Um cartão com o mapa, o traçado, a dificuldade e os números do dia. Sai bonito sem você fazer nada, e a velocidade só aparece se você quiser.</p>
+        <ul class="lista">
+          <li>Média, máxima e tempo em movimento, com chave pra esconder.</li>
+          <li>Perfil de piloto: a moto, o capacete, os quilômetros e os selos.</li>
+          <li>Clubes para rodar junto: rota, data, ponto de encontro e conversa própria.</li>
+        </ul>
+      </div>
+      <div class="vitrine par brilho rev">
+        <div class="celular"><img src="img/tela-story.webp" alt="Tela de compartilhar com o cartão do rolê para stories: mapa, traçado, 86,2 km e 3h06" width="720" height="1493" loading="lazy"></div>
+        <div class="celular"><img src="img/tela-piloto.webp" alt="Perfil do piloto com a moto, o capacete e 504,1 km rodados" width="720" height="1493" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIVACIDADE -->
+  <section id="privacidade">
+    <div class="wrap">
+      <div class="privado rev">
+        <div>
+          <span class="rotulo">Privacidade</span>
+          <h2>Seu endereço <span class="verde">não vai junto.</span></h2>
+          <p class="lead" style="margin-bottom:26px">O começo e o fim de uma gravação costumam ser a porta da sua casa. Ao publicar um rolê público, o app corta os primeiros e os últimos 300 metros antes de enviar. Esse trecho não sai do seu aparelho, e nem a gente consegue ver.</p>
+          <ul class="lista">
+            <li>Vem ligado de fábrica, e você decide trilha a trilha.</li>
+            <li>Perfil privado esconde os rolês, e seguir vira pedido.</li>
+            <li>Apague a conta e tudo que ela guarda, pelo app ou por e-mail.</li>
+          </ul>
+        </div>
+        <svg class="raio-svg" viewBox="0 0 360 300" role="img" aria-label="Traçado de um rolê com o começo e o fim cortados">
+          <path d="M40 250 C 70 250, 80 200, 110 190" fill="none" stroke="#57534E" stroke-width="6" stroke-dasharray="3 10" stroke-linecap="round"/>
+          <path d="M110 190 C 150 175, 150 110, 190 100 S 250 120, 270 70" fill="none" stroke="#56FF95" stroke-width="7" stroke-linecap="round"/>
+          <path d="M270 70 C 285 50, 305 52, 322 48" fill="none" stroke="#57534E" stroke-width="6" stroke-dasharray="3 10" stroke-linecap="round"/>
+          <circle class="pulsa" cx="40" cy="250" r="30" fill="rgba(86,255,149,.08)" stroke="#56FF95" stroke-opacity=".5" stroke-dasharray="4 5"/>
+          <circle class="pulsa" cx="322" cy="48" r="30" fill="rgba(86,255,149,.08)" stroke="#56FF95" stroke-opacity=".5" stroke-dasharray="4 5" style="animation-delay:-1.5s"/>
+          <circle cx="40" cy="250" r="6" fill="#57534E"/><circle cx="322" cy="48" r="6" fill="#57534E"/>
+          <text x="40" y="292" text-anchor="middle" fill="#A8A29E">300 m cortados</text>
+          <text x="290" y="24" text-anchor="middle" fill="#A8A29E">300 m cortados</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section class="galeria notas" style="border-top:1px solid var(--borda); padding-top:90px">
+    <div class="wrap cab rev" style="margin-bottom:0">
+      <span class="rotulo">Por dentro</span>
+      <h2>Tudo no <span class="verde">mesmo app.</span></h2>
+    </div>
+    <div class="trilho" tabindex="0" aria-label="Capturas de tela do aplicativo">
+      <div class="celular"><img src="img/tela-feed.webp" alt="Feed" width="720" height="1493" loading="lazy"></div>
+      <div class="celular"><img src="img/tela-mapa.webp" alt="Mapa de rotas" width="720" height="1491" loading="lazy"></div>
+      <div class="celular"><img src="img/tela-role.webp" alt="Rolê" width="720" height="1493" loading="lazy"></div>
+      <div class="celular"><img src="img/tela-por-onde-passou.webp" alt="Por onde passou" width="720" height="1493" loading="lazy"></div>
+      <div class="celular"><img src="img/tela-rotas.webp" alt="Catálogo de rotas" width="720" height="1493" loading="lazy"></div>
+      <div class="celular"><img src="img/tela-gravar.webp" alt="Gravação" width="720" height="1493" loading="lazy"></div>
+      <div class="celular"><img src="img/tela-planejar.webp" alt="Planejar rota" width="720" height="1493" loading="lazy"></div>
+      <div class="celular"><img src="img/tela-story.webp" alt="Compartilhar" width="720" height="1493" loading="lazy"></div>
+      <div class="celular"><img src="img/tela-piloto.webp" alt="Perfil do piloto" width="720" height="1493" loading="lazy"></div>
+    </div>
+  </section>
+
+  <!-- FINAL -->
+  <section class="final">
+    <div class="wrap rev">
+      <img class="ic" src="img/icone.webp" alt="Ícone do Roadfy" width="92" height="92" loading="lazy">
+      <h2>O próximo rolê <span class="verde">já pode ser registrado.</span></h2>
+      <p class="lead">O Roadfy está chegando ao Google Play. Quer entrar antes, como testador? Manda um e-mail.</p>
+      <div class="acoes">
+        <a class="btn btn-cheio" href="mailto:davdevlab@gmail.com?subject=Quero%20testar%20o%20Roadfy">Quero testar no Android</a>
+      </div>
+    </div>
+  </section>
+
 </main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#topo"><img src="img/icone.webp" alt="" width="32" height="32">Roadfy</a>
+    <nav aria-label="Rodapé">
+      <a href="privacidade.html">Política de Privacidade</a>
+      <a href="excluir-conta.html">Excluir sua conta</a>
+      <a href="mailto:davdevlab@gmail.com">davdevlab@gmail.com</a>
+    </nav>
+    <span>© 2026 Roadfy</span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var els = document.querySelectorAll('.rev');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('vis'); }); return; }
+    var io = new IntersectionObserver(function (items) {
+      items.forEach(function (i) { if (i.isIntersecting) { i.target.classList.add('vis'); io.unobserve(i.target); } });
+    }, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+    els.forEach(function (e) { io.observe(e); });
+  })();
+</script>
 </body>
 </html>
