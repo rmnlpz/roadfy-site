@@ -359,6 +359,7 @@
     });
     var LEGAL = {
       priv: { pt: 'privacidade.html', en: 'en/privacy.html', es: 'es/privacidad.html' },
+      termos: { pt: 'termos.html', en: 'en/terms.html', es: 'es/terminos.html' },
       del: { pt: 'excluir-conta.html', en: 'en/delete-account.html', es: 'es/eliminar-cuenta.html' }
     };
     document.querySelectorAll('[data-legal]').forEach(function (el) {

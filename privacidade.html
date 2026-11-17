@@ -97,14 +97,15 @@
 <p class="idiomas-leg"><strong>Português</strong> · <a href="en/privacy.html" hreflang="en" lang="en">English</a> · <a href="es/privacidad.html" hreflang="es" lang="es">Español</a></p>
 
 <h1>Política de Privacidade do Roadfy</h1>
-<p class="data">Vigente desde 28 de outubro de 2026.</p>
+<p class="data">Vigente desde 18 de novembro de 2026. Versão anterior: 28 de outubro de 2026.</p>
 
 <p>
   O Roadfy é um aplicativo para motociclistas de trilha: você grava o trajeto por
   GPS, avalia o trecho, anexa fotos e publica para outros pilotos descobrirem.
   Fazer isso exige coletar dados sensíveis — onde você esteve, e quando. Esta
   página diz exatamente o que é coletado, para quê, com quem é compartilhado e
-  como apagar tudo.
+  como apagar tudo. As regras de uso do aplicativo estão nos
+  <a href="termos.html">Termos de Uso</a>.
 </p>
 
 <h2>1. Quem é responsável pelos seus dados</h2>
@@ -116,6 +117,9 @@
 <p>
   Contato para qualquer assunto de privacidade, inclusive o exercício dos seus
   direitos: <a href="mailto:privacidade@roadforyou.com">privacidade@roadforyou.com</a>.
+  Como agente de tratamento de pequeno porte, este é também o canal de
+  comunicação com os titulares e com a Autoridade Nacional de Proteção de Dados
+  (ANPD), no lugar de um encarregado nomeado.
 </p>
 
 <h2>2. Localização, inclusive com o app fechado</h2>
@@ -149,8 +153,10 @@
       guardada apenas como resumo criptográfico — não temos acesso a ela.</li>
   <li><strong>Nome, e-mail e foto de perfil da conta Google</strong>, quando você
       entra com o Google. Recebemos esses dados do Google no momento da entrada.</li>
-  <li><strong>Perfil</strong>: nome de usuário, nome de exibição, biografia, moto e
-      foto, quando você os preenche.</li>
+  <li><strong>Nome de usuário (@)</strong>, que você escolhe ao criar a conta e pode
+      trocar depois.</li>
+  <li><strong>Perfil</strong>: nome de exibição, biografia, moto e foto, quando você os
+      preenche.</li>
 </ul>
 
 <h3>Quando você grava e publica um trajeto</h3>
@@ -162,11 +168,27 @@
   <li><strong>Suas avaliações</strong>: dificuldade, qualidade do piso, beleza,
       tipos de piso, título e observações que você escrever.</li>
   <li><strong>Fotos</strong> que você anexar, da câmera ou da galeria.</li>
+  <li><strong>Velocidade</strong> média, máxima e tempo em movimento, calculados a
+      partir dos pontos de GPS.</li>
+  <li><strong>Cidades, distritos e rodovias</strong> por onde o trajeto passou. Ao
+      publicar, o aplicativo consulta o serviço de endereços do próprio Android (que
+      é do Google) com alguns pontos do trajeto — já sem o trecho de privacidade
+      do início e do fim — para descobrir os nomes.</li>
+</ul>
+
+<h3>Quando você planeja uma rota</h3>
+<ul>
+  <li>Os pontos que você marca no mapa e, para o primeiro trecho, a sua posição
+      atual são enviados ao servidor de rotas (OSRM, com dados do OpenStreetMap)
+      para desenhar o caminho pela estrada. Esse serviço não recebe seu nome, seu
+      e-mail nem seu identificador. O que fica guardado no Roadfy são só as paradas
+      da rota que você salvar.</li>
 </ul>
 
 <h3>Quando você usa a parte social</h3>
 <ul>
-  <li>Curtidas, comentários, quem você segue e quem segue você.</li>
+  <li>Curtidas, comentários, quem você segue, quem segue você e os pedidos para
+      seguir (enviados e recebidos).</li>
   <li>Rotas salvas no catálogo, rotas que você começou a percorrer e conclusões.</li>
   <li>Grupos que você criar ou dos quais participar, incluindo as mensagens do chat.</li>
   <li><strong>Denúncias e bloqueios.</strong> Ao denunciar um conteúdo, guardamos o que
@@ -177,8 +199,8 @@
 <div class="caixa">
   <p><strong>Quem vê a denúncia que você fez:</strong> só você e nós. Ela não é mostrada
   a quem foi denunciado, e não avisamos essa pessoa. A denúncia não apaga nada
-  automaticamente — ela entra numa lista que revisamos à mão, e por isso não prometemos
-  prazo.</p>
+  automaticamente — ela entra numa fila que quem modera o Roadfy recebe e revisa à mão;
+  o conteúdo é removido quando viola os <a href="termos.html">Termos de Uso</a>.</p>
   <p><strong>Quem vê um bloqueio:</strong> só você. A lista de quem você bloqueou fica em
   Perfil → Configurações → Pilotos bloqueados, e ninguém mais a consulta. O efeito, porém,
   é dos dois lados: vocês deixam de aparecer um para o outro no feed, nos comentários e na
@@ -187,11 +209,14 @@
 
 <h3>Se você assinar o Premium</h3>
 <ul>
-  <li>Situação da assinatura, plano e data de término do período.</li>
-  <li><strong>Não recebemos nem armazenamos dados do seu cartão.</strong></li>
-  <li>O Premium não está à venda no momento. Quando voltar, a cobrança será feita
-      pela Google Play, na conta Google que você já usa — e esta política será
-      atualizada antes disso, dizendo o que a Play nos informa.</li>
+  <li>A cobrança é feita pela <strong>Google Play</strong>, na conta Google do aparelho.
+      <strong>Não recebemos nem armazenamos dados do seu cartão</strong>, nem o seu
+      e-mail do Google Play.</li>
+  <li>O <strong>RevenueCat</strong>, que confere as compras com a Play, recebe o
+      identificador da sua conta no Roadfy e o recibo da compra, e nos informa a
+      situação da assinatura: plano, período de teste grátis, data de renovação ou de
+      término e cancelamento.</li>
+  <li>Guardamos essa situação para liberar o Premium.</li>
 </ul>
 
 <h3>Quando algo dá errado no aplicativo</h3>
@@ -209,13 +234,24 @@
   aplicativo mostra justamente o mapa com a sua posição.
 </p>
 
+<h3>E-mails que o aplicativo envia</h3>
+<p>
+  Confirmação de cadastro, recuperação de senha e troca de e-mail saem pelo serviço
+  Resend, a partir de nao-responda@roadforyou.com. Ele recebe o seu e-mail e o
+  conteúdo da mensagem só para entregá-la. Quando você escreve para um endereço
+  @roadforyou.com, a mensagem passa pelo serviço de encaminhamento ImprovMX antes de
+  chegar a nós.
+</p>
+
 <h3>No seu aparelho, sem sair dele</h3>
 <p>
   Gravações em andamento e ainda não publicadas ficam num banco local, junto com as
   fotos anexadas, para sobreviverem à falta de sinal e ao encerramento do aplicativo.
   Sua sessão é guardada no cofre de credenciais do sistema (Keychain no iOS,
-  KeyStore no Android). Nada disso é enviado enquanto você não publicar, e tudo é
-  apagado quando você exclui a conta ou sai.
+  KeyStore no Android). Nada disso é enviado enquanto você não publicar. Cada
+  rascunho fica ligado à conta que o gravou: se outra pessoa entrar no mesmo
+  aparelho, ela não vê nem publica os seus. Ao sair, o que estava em cache das
+  telas é apagado; ao excluir a conta, os rascunhos também.
 </p>
 
 <h2>4. Por que tratamos cada dado</h2>
@@ -257,6 +293,21 @@
     <td>Liberar o Premium e atender obrigações fiscais</td>
     <td>Execução de contrato e obrigação legal (art. 7º, II e V)</td>
   </tr>
+  <tr>
+    <td>Velocidade, cidades, distritos e rodovias do trajeto</td>
+    <td>Mostrar o resumo do rolê e as estatísticas do seu perfil</td>
+    <td>Execução de contrato (art. 7º, V)</td>
+  </tr>
+  <tr>
+    <td>Pontos de rota planejada e posição atual</td>
+    <td>Desenhar o caminho pela estrada no planejador</td>
+    <td>Execução de contrato (art. 7º, V)</td>
+  </tr>
+  <tr>
+    <td>E-mail, para mensagens do aplicativo</td>
+    <td>Confirmar cadastro, recuperar senha, responder contato</td>
+    <td>Execução de contrato (art. 7º, V)</td>
+  </tr>
 </table>
 
 <h2>5. O que fica visível para outras pessoas</h2>
@@ -270,10 +321,16 @@
       e terminou.</li>
   <li><strong>Trajeto marcado como privado</strong>: visível apenas para você,
       inclusive as fotos.</li>
-  <li><strong>Seu perfil</strong>: nome de usuário, nome de exibição, biografia, moto
-      e foto são visíveis para quem está logado. A opção “perfil privado” esconde as
-      listas de quem você segue e de quem te segue — não esconde o perfil nem os
-      trajetos públicos.</li>
+  <li><strong>Seu perfil</strong>: nome de usuário, nome de exibição, foto, biografia
+      e os totais (rolês, quilômetros, seguidores) são visíveis para quem está logado.</li>
+  <li><strong>Perfil privado</strong>: quem não te segue vê só o cabeçalho acima. Seus
+      rolês — inclusive os públicos —, fotos, conclusões e listas de seguidores ficam
+      visíveis apenas para quem você aceitar: seguir um perfil privado vira um pedido,
+      que você aprova ou recusa.</li>
+  <li><strong>Velocidade</strong>: só aparece para os outros se você escolher mostrá-la
+      ao publicar, e a opção vem desligada.</li>
+  <li><strong>Cidades e estradas</strong>: aparecem junto do rolê publicado e, se você
+      deixar ligado, no seu perfil.</li>
   <li><strong>Chat de grupo</strong>: visível apenas para os participantes daquele grupo.</li>
 </ul>
 
@@ -335,6 +392,36 @@
     <td>O CEP que você digitar na busca</td>
     <td>Descobrir a cidade correspondente ao CEP</td>
   </tr>
+  <tr>
+    <td>Google (endereços do Android)</td>
+    <td>Alguns pontos do trajeto publicado, sem o início e o fim protegidos</td>
+    <td>Descobrir cidades, distritos e rodovias por onde o rolê passou</td>
+  </tr>
+  <tr>
+    <td>Servidor de rotas OSRM (dados OpenStreetMap)</td>
+    <td>Os pontos que você marca no planejador e sua posição atual</td>
+    <td>Desenhar o caminho pela estrada entre os pontos</td>
+  </tr>
+  <tr>
+    <td>Google Play</td>
+    <td>A compra da assinatura, na sua conta Google</td>
+    <td>Cobrar o Premium</td>
+  </tr>
+  <tr>
+    <td>RevenueCat</td>
+    <td>O identificador da sua conta e o recibo da compra</td>
+    <td>Conferir a compra com a Play e nos informar a situação da assinatura</td>
+  </tr>
+  <tr>
+    <td>Resend</td>
+    <td>Seu e-mail e o texto da mensagem</td>
+    <td>Entregar os e-mails do aplicativo</td>
+  </tr>
+  <tr>
+    <td>ImprovMX</td>
+    <td>As mensagens que você envia para um endereço @roadforyou.com</td>
+    <td>Encaminhar a mensagem até nós</td>
+  </tr>
 </table>
 
 <p>
@@ -363,7 +450,9 @@
       você. A reclamação é dado de quem reclamou, e apagá-la junto com a sua conta
       apagaria o registro de alguém que não pediu nada. As denúncias que <em>você</em> fez
       são apagadas com a sua conta.</li>
-  <li>Registros de pagamento ficam pelo prazo exigido pela legislação fiscal.</li>
+  <li>Registros de pagamento ficam pelo prazo exigido pela legislação fiscal. Ao
+      excluir a conta, também pedimos ao RevenueCat que apague o seu registro; o
+      histórico de compras na sua conta Google segue as regras do Google.</li>
 </ul>
 
 <h2>9. Como excluir sua conta</h2>
@@ -374,6 +463,10 @@
 <p>
   Se você já desinstalou o aplicativo, use a
   <a href="excluir-conta.html">página de exclusão de conta</a>.
+</p>
+<p>
+  <strong>Excluir a conta não cancela a assinatura do Premium</strong>, que é da
+  Google Play. Cancele antes em Google Play → Pagamentos e assinaturas.
 </p>
 
 <h2>10. Seus direitos</h2>
@@ -422,7 +515,7 @@
 </p>
 
 <footer>
-  <a href="index.html">Roadfy</a>
+  <a href="index.html">Roadfy</a> · <a href="termos.html">Termos de Uso</a>
 </footer>
 
 </main>
