@@ -324,13 +324,82 @@
   .trio .centro { z-index: 2; box-shadow: 0 0 0 1.5px #3a3532, 0 50px 90px -20px rgba(0,0,0,.9), 0 0 140px -20px rgba(86,255,149,.4); }
   @media (max-width: 600px) { .trio { grid-template-columns: 1fr; max-width: 290px; margin-top: 64px; } .trio .lado { display: none; } }
 
+
+  /* ---------- modo rally ---------- */
+  .rally { position: relative; padding-top: 0; overflow: hidden; background: linear-gradient(180deg, #0C1A12 0%, #0A0A0A 55%); }
+  .rally::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
+    background: repeating-linear-gradient(115deg, transparent 0 46px, rgba(86,255,149,.045) 46px 48px);
+    -webkit-mask-image: linear-gradient(180deg, #000, transparent 70%); mask-image: linear-gradient(180deg, #000, transparent 70%);
+  }
+  .bandeira { height: 28px; background: repeating-conic-gradient(#F5F5F4 0 25%, #0A0A0A 0 50%) 0 0 / 28px 28px; opacity: .92; }
+  .rally-grade { position: relative; display: grid; grid-template-columns: 1fr 1.05fr; gap: 56px; align-items: center; padding-top: 96px; }
+  .ry-selos { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .ry-selos .rotulo { margin: 0; }
+  .ry-novo {
+    padding: 4px 11px; border-radius: 999px; background: var(--marca); color: #04130A; font-size: .72rem; font-weight: 800;
+    letter-spacing: .1em; text-transform: uppercase; box-shadow: 0 6px 24px -4px rgba(86,255,149,.6);
+  }
+  .ry-h2 { font-size: clamp(2.4rem, 5.6vw, 4.4rem); margin-bottom: 22px; }
+  .rally .texto .lead { font-size: 1.22rem; color: #D6D3D1; }
+  .rally .nota-mini { margin-top: 18px; max-width: 30rem; }
+  .rally-palco { position: relative; height: min(840px, 118vw); }
+  .rally-palco .celular { position: absolute; width: 56%; max-width: 410px; }
+  .rally-palco .r1 { left: 0; top: 70px; transform: rotate(-7deg); }
+  .rally-palco .r2 { right: 0; top: 0; transform: rotate(5deg); z-index: 2; box-shadow: 0 0 0 1.5px #3a3532, 0 50px 90px -20px rgba(0,0,0,.9), 0 0 150px -20px rgba(86,255,149,.4); }
+  .ficha-t {
+    position: absolute; z-index: 3; display: flex; align-items: center; gap: 10px; padding: 9px 16px 9px 10px;
+    background: #FFF; color: #111; border-radius: 14px; box-shadow: 0 18px 50px -12px rgba(0,0,0,.8);
+    animation: flutuar 6s ease-in-out infinite;
+  }
+  .ficha-t svg { width: 46px; height: 46px; }
+  .ficha-t b { display: block; font-size: 1.25rem; line-height: 1; letter-spacing: -.02em; }
+  .ficha-t small { color: #555; font-weight: 700; font-size: .82rem; }
+  .ficha-t.t1 { left: -4%; top: 52%; }
+  .ficha-t.t2 { right: -2%; bottom: 7%; animation-delay: -3s; }
+  .gl-h { font-size: clamp(1.7rem, 3.6vw, 2.5rem); letter-spacing: -.035em; }
+  .glossario { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; padding-bottom: 100px; }
+  .gl { background: var(--caixa); border: 1px solid var(--borda); border-radius: var(--raio); padding: 22px; display: flex; flex-direction: column; }
+  .gl:hover { border-color: rgba(86,255,149,.5); }
+  .gl-vis { height: 124px; display: grid; place-items: center; }
+  .gl h3 { margin: 18px 0 6px; }
+  .gl p { color: var(--suave); font-size: .94rem; }
+  .mini-trip { width: 100%; background: var(--marca); color: #0A1F14; border-radius: 14px; padding: 12px 16px; }
+  .mini-trip small, .mini-cap small { display: block; font-weight: 800; font-size: .72rem; letter-spacing: .12em; }
+  .mini-trip b { display: block; font-size: 2.4rem; line-height: 1; letter-spacing: -.04em; margin: 2px 0 4px; }
+  .mini-trip span { font-weight: 800; font-size: .82rem; }
+  .mini-cap { width: 100%; text-align: center; background: #000; border: 1.5px solid var(--marca); color: var(--marca); border-radius: 14px; padding: 18px 16px; }
+  .mini-cap b { display: block; font-size: 2.9rem; line-height: 1; letter-spacing: -.04em; margin-top: 6px; }
+  .papel { background: #FFF; color: #111; border-radius: 12px; width: 100%; display: flex; align-items: center; justify-content: space-around; padding: 10px; }
+  .papel svg { width: 50px; height: 50px; }
+  .papel.tulipas svg { width: 40px; height: 40px; }
+  .nota-ex { justify-content: space-between; padding: 10px 14px; }
+  .nota-ex .km, .nota-ex .rumo { font-weight: 800; font-size: 1.2rem; line-height: 1.1; letter-spacing: -.02em; }
+  .nota-ex i { display: block; font-style: normal; font-weight: 600; font-size: .78rem; color: #555; }
+  @media (max-width: 900px) {
+    .rally-grade { grid-template-columns: 1fr; gap: 40px; padding-top: 64px; }
+    .rally-palco { height: min(620px, 130vw); }
+    .glossario { grid-template-columns: 1fr 1fr; padding-bottom: 70px; }
+    .ficha-t.t1 { left: 0; }
+  }
+  @media (max-width: 520px) {
+    .glossario { grid-template-columns: 1fr; }
+    .rally-palco { height: min(540px, 128vw); }
+    .ficha-t { padding: 6px 11px 6px 7px; gap: 7px; border-radius: 11px; }
+    .ficha-t svg { width: 30px; height: 30px; }
+    .ficha-t b { font-size: 1rem; }
+    .ficha-t small { font-size: .7rem; }
+    .ficha-t.t1 { top: 58%; }
+    .ficha-t.t2 { bottom: 12%; right: 0; }
+  }
+
   /* ---------- aparecer ao rolar ---------- */
   .js .rev { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
   .js .rev.vis { opacity: 1; transform: none; }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .js .rev { opacity: 1; transform: none; transition: none; }
-    .trilha-fundo path, .palco .celular, .pulsa, .selo i { animation: none; }
+    .trilha-fundo path, .palco .celular, .pulsa, .selo i, .ficha-t { animation: none; }
   }
 
   /* ---------- telas pequenas ---------- */
@@ -362,6 +431,7 @@
   <div class="wrap">
     <a class="logo" href="#topo"><img src="img/icone.webp" alt="" width="32" height="32">Roadfy</a>
     <nav>
+      <a href="#rally" data-i18n="nav_rally">Modo Rally</a>
       <a href="#recursos" data-i18n="nav_features">Recursos</a>
       <a href="#comunidade" data-i18n="nav_community">Comunidade</a>
       <a href="#notas" data-i18n="nav_notes">Três notas</a>
@@ -413,6 +483,63 @@
       <div><b data-i18n="stat4b">0 anúncios</b><span data-i18n="stat4">nem rastreio de publicidade</span></div>
     </div>
   </div>
+
+  <!-- MODO RALLY -->
+  <section id="rally" class="rally">
+    <div class="bandeira" aria-hidden="true"></div>
+    <div class="wrap rally-grade">
+      <div class="texto rev">
+        <div class="ry-selos"><span class="rotulo" data-i18n="ry_label">Modo Rally</span><span class="ry-novo" data-i18n="ry_new">Novo</span></div>
+        <h2 class="ry-h2" data-i18n="ry_h2">Quer um rolê mais <span class="verde">radical e desafiador?</span></h2>
+        <p class="lead" data-i18n="ry_lead">Seja guiado por um roadbook de rali, como fazem os pilotos do Dakar: trip, CAP e tulipas no lugar do mapa. O Roadfy monta tudo a partir da rota.</p>
+        <ul class="lista" style="gap:16px">
+          <li><span data-i18n="ry_1"><b>Roadbook gerado da rota.</b> Escolha uma rota do catálogo e, na tela dela, troque o GPS pelo Rally. As notas saem prontas.</span></li>
+          <li><span data-i18n="ry_2"><b>Trip, parcial e CAP.</b> O odômetro, a distância desde a última nota e o rumo de agora, em números enormes.</span></li>
+          <li><span data-i18n="ry_3"><b>Tulipas, não mapa.</b> O desenho de cada cruzamento, com a quilometragem e o rumo de saída.</span></li>
+          <li><span data-i18n="ry_4"><b>Avança sozinho.</b> As notas passam pelo GPS e o celular vibra a cada uma, para você ler sem tocar na tela.</span></li>
+          <li><span data-i18n="ry_5"><b>Feito para ler no sol.</b> Tinta preta no papel branco, tela sempre acesa e um alerta vermelho quando você sai da rota.</span></li>
+        </ul>
+        <div class="acoes" style="margin-top:30px">
+          <a class="btn btn-cheio" href="mailto:contato@roadforyou.com?subject=Quero%20testar%20o%20Roadfy" data-mail-subject><span data-i18n="cta_test">Quero testar no Android</span></a>
+        </div>
+        <p class="nota-mini" data-i18n="ry_safe">O roadbook é um auxílio de navegação. Pilote com atenção e pare para ler quando precisar.</p>
+      </div>
+      <div class="rally-palco rev">
+        <div class="celular r1"><img src="img/tela-rally-1.webp" alt="Modo Rally com o trip em verde, o alerta vermelho de fora da rota e a tulipa da nota atual e da seguinte" data-i18n-alt="a_rally1" width="738" height="1525" loading="lazy"></div>
+        <div class="celular r2"><img src="img/tela-rally-2.webp" alt="Modo Rally esperando o GPS, na nota 1 de 10, com a tulipa da nota seguinte" data-i18n-alt="a_rally2" width="738" height="1525" loading="lazy"></div>
+        <div class="ficha-t t1" aria-hidden="true"><svg viewBox="0 0 60 60" aria-hidden="true" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="30" cy="52" r="3" fill="#111"/><path d="M30 50V14"/><path d="M30 30H14"/><path d="M22 21l-13 9 13 9z" fill="#111"/></svg><div><b>0,11</b><small>30°</small></div></div>
+        <div class="ficha-t t2" aria-hidden="true"><svg viewBox="0 0 60 60" aria-hidden="true" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="30" cy="52" r="3" fill="#111"/><path d="M30 50V14"/><path d="M30 36L16 46"/><path d="M10 38l2 13 12-5z" fill="#111"/></svg><div><b>0,34</b><small>165°</small></div></div>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="cab rev" style="margin:84px auto 36px">
+        <h3 class="gl-h" data-i18n="ry_gl_h">Fale rali</h3>
+        <p class="lead" data-i18n="ry_gl_p">As palavras do roadbook, em um minuto.</p>
+      </div>
+      <div class="glossario">
+        <div class="gl rev">
+          <div class="gl-vis"><div class="mini-trip"><small>TRIP</small><b>12,48</b><span>PARCIAL 0,37</span></div></div>
+          <h3>Trip</h3>
+          <p data-i18n="ry_g1_p">O odômetro da etapa. Ao lado, o parcial: quanto você andou desde a última nota.</p>
+        </div>
+        <div class="gl rev">
+          <div class="gl-vis"><div class="mini-cap"><small>CAP</small><b>115°</b></div></div>
+          <h3>CAP</h3>
+          <p data-i18n="ry_g2_p">O rumo em graus. Você segue o CAP da nota até chegar na próxima.</p>
+        </div>
+        <div class="gl rev">
+          <div class="gl-vis"><div class="papel tulipas"><svg viewBox="0 0 60 60" aria-hidden="true" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="30" cy="52" r="3" fill="#111"/><path d="M30 50V14"/><path d="M19 22l11-13 11 13z" fill="#111"/></svg><svg viewBox="0 0 60 60" aria-hidden="true" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="30" cy="52" r="3" fill="#111"/><path d="M30 50V14"/><path d="M30 30H14"/><path d="M22 21l-13 9 13 9z" fill="#111"/></svg><svg viewBox="0 0 60 60" aria-hidden="true" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="30" cy="52" r="3" fill="#111"/><path d="M30 50V10M12 28h24"/><path d="M38 19l13 9-13 9z" fill="#111"/></svg></div></div>
+          <h3 data-i18n="ry_g3_t">Tulipa</h3>
+          <p data-i18n="ry_g3_p">O desenho do cruzamento: de onde você vem, para onde vai e por qual saída.</p>
+        </div>
+        <div class="gl rev">
+          <div class="gl-vis"><div class="papel nota-ex"><span class="km">3,20<i>0,41</i></span><svg viewBox="0 0 60 60" aria-hidden="true" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="30" cy="52" r="3" fill="#111"/><path d="M30 50V10M12 28h24"/><path d="M38 19l13 9-13 9z" fill="#111"/></svg><span class="rumo">30°<i>PE-197</i></span></div></div>
+          <h3 data-i18n="ry_g4_t">Nota</h3>
+          <p data-i18n="ry_g4_p">Cada trecho do roadbook, com quilômetro, tulipa e rumo de saída. Aparecem a atual e a seguinte.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- GRAVAR -->
   <section id="recursos">
