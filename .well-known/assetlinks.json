@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.rotalivre.app",
+      "sha256_cert_fingerprints": [
+        "0A:15:BB:35:D2:C1:EA:4E:27:B1:B4:E2:1B:AC:E3:F3:0D:60:80:44:10:A8:60:13:F7:FE:7A:66:2F:21:95:28"
+      ]
+    }
+  }
+]

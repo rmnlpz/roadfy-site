@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Convite para um rolê — Roadfy</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Você foi chamado para um rolê no Roadfy. Abra o convite no app.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Roadfy">
+<meta property="og:title" content="Bora nesse rolê? Convite no Roadfy">
+<meta property="og:description" content="Toque para abrir o convite no app Roadfy.">
+<meta property="og:image" content="https://roadforyou.com/img/og.jpg">
+<link rel="icon" href="../favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32.png">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<!--
+  A porta web do link de convite que o app compartilha
+  (https://roadforyou.com/convite/?g=<token>).
+
+  Com o app instalado e o domínio verificado (.well-known/assetlinks.json),
+  o Android nem chega aqui: abre o app direto. Esta página é para os outros
+  casos — app ainda não instalado, ou domínio ainda não verificado — e o botão
+  abre o app pelo mesmo endereço, com o pacote dito explicitamente.
+
+  Links relativos, como no resto do site: ele também é servido na subpasta
+  rmnlpz.github.io/roadfy-site/.
+-->
+<style>
+  :root {
+    --fundo: #FAFAF9;
+    --texto: #1C1917;
+    --suave: #57534E;
+    --caixa: #FFFFFF;
+    --borda: #E7E5E4;
+    --marca: #0A7C42;
+    --sobre-marca: #FFFFFF;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --fundo: #0C0A09;
+      --texto: #FAFAF9;
+      --suave: #A8A29E;
+      --caixa: #1C1917;
+      --borda: #292524;
+      --marca: #56FF95;
+      --sobre-marca: #0A1F14;
+    }
+  }
+  :root[data-theme="dark"] {
+    --fundo: #0C0A09;
+    --texto: #FAFAF9;
+    --suave: #A8A29E;
+    --caixa: #1C1917;
+    --borda: #292524;
+    --marca: #56FF95;
+    --sobre-marca: #0A1F14;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--fundo);
+    color: var(--texto);
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  main {
+    max-width: 28rem;
+    margin: 0 auto;
+    padding: 3.5rem 16px 4rem;
+    text-align: center;
+  }
+  .icone { width: 88px; height: 88px; border-radius: 22px; }
+  h1 { font-size: 1.6rem; line-height: 1.25; margin: 1.25rem 0 .5rem; }
+  p { color: var(--suave); margin: 0 0 1.75rem; }
+  .botao {
+    display: block;
+    padding: 1rem;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-decoration: none;
+    background: var(--marca);
+    color: var(--sobre-marca);
+  }
+  .secundario {
+    display: block;
+    margin-top: .9rem;
+    padding: .9rem;
+    border: 1.5px solid var(--borda);
+    border-radius: 12px;
+    background: var(--caixa);
+    color: var(--texto);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .nota { font-size: .85rem; margin-top: 1.75rem; }
+  .nota a { color: var(--marca); }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <img class="icone" src="../img/icon-192.png" alt="Roadfy" width="88" height="88">
+  <h1 id="titulo">Você foi chamado para um rolê</h1>
+  <p id="texto">O convite abre no app Roadfy. Toque abaixo para entrar no grupo.</p>
+
+  <a class="botao" id="abrir" href="#">Abrir no Roadfy</a>
+  <a class="secundario" id="baixar" href="https://play.google.com/store/apps/details?id=com.rotalivre.app">Ainda não tenho o app</a>
+
+  <p class="nota" id="semConvite" hidden>Este link de convite veio incompleto. Peça a quem chamou para mandar de novo.</p>
+  <p class="nota"><a id="site" href="../index.html">O que é o Roadfy?</a></p>
+</main>
+<script>
+  (function () {
+    var PACOTE = 'com.rotalivre.app';
+    var PLAY = 'https://play.google.com/store/apps/details?id=' + PACOTE;
+
+    var textos = {
+      pt: {
+        titulo: 'Você foi chamado para um rolê',
+        texto: 'O convite abre no app Roadfy. Toque abaixo para entrar no grupo.',
+        abrir: 'Abrir no Roadfy',
+        baixar: 'Ainda não tenho o app',
+        semConvite: 'Este link de convite veio incompleto. Peça a quem chamou para mandar de novo.',
+        site: 'O que é o Roadfy?'
+      },
+      en: {
+        titulo: 'You were invited on a ride',
+        texto: 'The invite opens in the Roadfy app. Tap below to join the group.',
+        abrir: 'Open in Roadfy',
+        baixar: 'I don’t have the app yet',
+        semConvite: 'This invite link came incomplete. Ask whoever invited you to send it again.',
+        site: 'What is Roadfy?'
+      },
+      es: {
+        titulo: 'Te invitaron a una salida',
+        texto: 'La invitación se abre en la app Roadfy. Toca abajo para entrar al grupo.',
+        abrir: 'Abrir en Roadfy',
+        baixar: 'Todavía no tengo la app',
+        semConvite: 'Este enlace de invitación llegó incompleto. Pide a quien te invitó que lo mande de nuevo.',
+        site: '¿Qué es Roadfy?'
+      }
+    };
+
+    var idioma = (navigator.language || 'pt').slice(0, 2).toLowerCase();
+    var t = textos[idioma] || textos.pt;
+    document.documentElement.lang = idioma === 'en' ? 'en' : idioma === 'es' ? 'es' : 'pt-BR';
+    Object.keys(t).forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.textContent = t[id];
+    });
+    if (idioma === 'en') document.getElementById('site').href = '../en/index.html';
+    if (idioma === 'es') document.getElementById('site').href = '../es/index.html';
+
+    var token = new URLSearchParams(location.search).get('g');
+    var abrir = document.getElementById('abrir');
+    if (!token) {
+      abrir.hidden = true;
+      document.getElementById('semConvite').hidden = false;
+      return;
+    }
+
+    // O mesmo endereço desta página, mas entregue ao app pelo pacote: abre o
+    // Roadfy mesmo com o domínio ainda sem verificação, e sem o app instalado
+    // o Chrome segue para a Play.
+    var caminho = 'roadforyou.com/convite/?g=' + encodeURIComponent(token);
+    abrir.href =
+      'intent://' + caminho +
+      '#Intent;scheme=https;package=' + PACOTE +
+      ';S.browser_fallback_url=' + encodeURIComponent(PLAY) + ';end';
+
+    // Fora do Android não há intent: o botão vira o link da Play.
+    if (!/android/i.test(navigator.userAgent)) abrir.href = PLAY;
+  })();
+</script>
+</body>
+</html>
